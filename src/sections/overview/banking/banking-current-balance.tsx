@@ -1,21 +1,21 @@
 import { useCallback } from 'react';
-
+// @mui
+import { Theme, useTheme, alpha, SxProps } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import { Theme, alpha, SxProps, useTheme } from '@mui/material/styles';
-
-import { useBoolean } from 'src/hooks/use-boolean';
-
-import { fCurrency } from 'src/utils/format-number';
-
+// theme
 import { bgGradient } from 'src/theme/css';
-
+// utils
+import { fCurrency } from 'src/utils/format-number';
+// hooks
+import { useBoolean } from 'src/hooks/use-boolean';
+// components
 import Iconify from 'src/components/iconify';
 import CustomPopover, { usePopover } from 'src/components/custom-popover';
-import Carousel, { useCarousel, CarouselDots } from 'src/components/carousel';
+import Carousel, { CarouselDots, useCarousel } from 'src/components/carousel';
 
 // ----------------------------------------------------------------------
 

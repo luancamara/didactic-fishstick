@@ -1,3 +1,4 @@
+// sections
 import { AmplifyLoginView } from 'src/sections/auth/amplify';
 
 // ----------------------------------------------------------------------

@@ -1,3 +1,4 @@
+// @mui
 import Stack from '@mui/material/Stack';
 import Skeleton from '@mui/material/Skeleton';
 import Paper, { PaperProps } from '@mui/material/Paper';
@@ -45,11 +46,11 @@ export function ProductDetailsSkeleton({ ...other }: Grid2Props) {
 
       <Grid xs={12} md={6} lg={5}>
         <Stack spacing={3}>
-          <Skeleton sx={{ height: 16, width: 48 }} />
-          <Skeleton sx={{ height: 16, width: 80 }} />
-          <Skeleton sx={{ height: 16, width: 0.5 }} />
+          <Skeleton variant="circular" sx={{ width: 80, height: 80 }} />
+          <Skeleton sx={{ height: 240 }} />
+          <Skeleton sx={{ height: 16 }} />
           <Skeleton sx={{ height: 16, width: 0.75 }} />
-          <Skeleton sx={{ height: 120 }} />
+          <Skeleton sx={{ height: 16, width: 0.5 }} />
         </Stack>
       </Grid>
 

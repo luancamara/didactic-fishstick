@@ -1,3 +1,4 @@
+// sections
 import { OverviewAnalyticsView } from 'src/sections/overview/analytics/view';
 
 // ----------------------------------------------------------------------

@@ -1,14 +1,15 @@
 'use client';
 
-import Stack from '@mui/material/Stack';
+// @mui
 import { useTheme } from '@mui/material/styles';
+import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
-
+// _mock
 import { _bankingContacts, _bankingCreditCard, _bankingRecentTransitions } from 'src/_mock';
-
+// components
 import { useSettingsContext } from 'src/components/settings';
-
+//
 import BankingContacts from '../banking-contacts';
 import BankingQuickTransfer from '../banking-quick-transfer';
 import BankingInviteFriends from '../banking-invite-friends';

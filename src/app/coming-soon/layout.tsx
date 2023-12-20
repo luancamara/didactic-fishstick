@@ -1,5 +1,6 @@
 'use client';
 
+// components
 import CompactLayout from 'src/layouts/compact';
 
 // ----------------------------------------------------------------------

@@ -1,6 +1,6 @@
 import { useEffect, useCallback } from 'react';
-import { useForm, Controller } from 'react-hook-form';
-
+import { Controller, useForm } from 'react-hook-form';
+// @mui
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
@@ -10,20 +10,20 @@ import Divider from '@mui/material/Divider';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
 import { formHelperTextClasses } from '@mui/material/FormHelperText';
-
+// routes
 import { paths } from 'src/routes/paths';
 import { useRouter } from 'src/routes/hooks';
-
-import { fCurrency, fShortenNumber } from 'src/utils/format-number';
-
+// utils
+import { fShortenNumber, fCurrency } from 'src/utils/format-number';
+// components
 import Label from 'src/components/label';
 import Iconify from 'src/components/iconify';
 import { ColorPicker } from 'src/components/color-utils';
 import FormProvider, { RHFSelect } from 'src/components/hook-form';
-
+// types
 import { IProductItem } from 'src/types/product';
 import { ICheckoutItem } from 'src/types/checkout';
-
+//
 import IncrementerButton from './common/incrementer-button';
 
 // ----------------------------------------------------------------------

@@ -1,23 +1,23 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
-
+import { useEffect, useState, useCallback } from 'react';
+// @mui
 import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-
+// routes
 import { paths } from 'src/routes/paths';
 import { useRouter, useSearchParams } from 'src/routes/hooks';
-
+// hooks
 import { useMockedUser } from 'src/hooks/use-mocked-user';
-
+// api
 import { useGetContacts, useGetConversation, useGetConversations } from 'src/api/chat';
-
+// components
 import { useSettingsContext } from 'src/components/settings';
-
+// types
 import { IChatParticipant } from 'src/types/chat';
-
+//
 import ChatNav from '../chat-nav';
 import ChatRoom from '../chat-room';
 import ChatMessageList from '../chat-message-list';
@@ -48,7 +48,7 @@ export default function ChatView() {
 
   const participants: IChatParticipant[] = conversation
     ? conversation.participants.filter(
-        (participant: IChatParticipant) => participant.id !== `${user?.id}`
+        (participant: IChatParticipant) => participant.id !== user.id
       )
     : [];
 

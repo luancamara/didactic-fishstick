@@ -1,6 +1,8 @@
 'use client';
 
+// auth
 import { GuestGuard } from 'src/auth/guard';
+// components
 import CompactLayout from 'src/layouts/compact';
 
 // ----------------------------------------------------------------------

@@ -1,21 +1,21 @@
 import { Draggable } from '@hello-pangea/dnd';
-
+// @mui
+import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
-import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Paper, { PaperProps } from '@mui/material/Paper';
 import AvatarGroup, { avatarGroupClasses } from '@mui/material/AvatarGroup';
-
+// hooks
 import { useBoolean } from 'src/hooks/use-boolean';
-
+// theme
 import { bgBlur } from 'src/theme/css';
-
-import Iconify from 'src/components/iconify';
-
+// types
 import { IKanbanTask } from 'src/types/kanban';
-
+// components
+import Iconify from 'src/components/iconify';
+//
 import KanbanDetails from './kanban-details';
 
 // ----------------------------------------------------------------------

@@ -1,3 +1,4 @@
+// sections
 import { ModernNewPasswordView } from 'src/sections/auth-demo/modern';
 
 // ----------------------------------------------------------------------

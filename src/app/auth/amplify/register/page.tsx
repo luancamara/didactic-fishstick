@@ -1,3 +1,4 @@
+// sections
 import { AmplifyRegisterView } from 'src/sections/auth/amplify';
 
 // ----------------------------------------------------------------------

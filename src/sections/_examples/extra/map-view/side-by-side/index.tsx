@@ -1,8 +1,8 @@
+import { useState, useCallback, useMemo, memo } from 'react';
 import Map, { ViewStateChangeEvent } from 'react-map-gl';
-import { memo, useMemo, useState, useCallback } from 'react';
-
+// components
 import { MapBoxProps } from 'src/components/map';
-
+//
 import ControlPanel, { ModeProps } from './control-panel';
 
 // ----------------------------------------------------------------------

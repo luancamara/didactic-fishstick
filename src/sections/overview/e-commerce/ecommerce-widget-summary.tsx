@@ -1,13 +1,13 @@
 import { ApexOptions } from 'apexcharts';
-
+// @mui
+import { alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Card, { CardProps } from '@mui/material/Card';
-import { alpha, useTheme } from '@mui/material/styles';
-
+// utils
 import { fNumber, fPercent } from 'src/utils/format-number';
-
+// components
 import Iconify from 'src/components/iconify';
 import Chart, { useChart } from 'src/components/chart';
 
@@ -46,8 +46,8 @@ export default function EcommerceWidgetSummary({
       type: 'gradient',
       gradient: {
         colorStops: [
-          { offset: 0, color: colors[0], opacity: 1 },
-          { offset: 100, color: colors[1], opacity: 1 },
+          { offset: 0, color: colors[0] },
+          { offset: 100, color: colors[1] },
         ],
       },
     },
@@ -122,7 +122,6 @@ export default function EcommerceWidgetSummary({
       </Box>
 
       <Chart
-        dir="ltr"
         type="line"
         series={[{ data: series }]}
         options={chartOptions}

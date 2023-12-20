@@ -1,3 +1,4 @@
+// sections
 import { TourListView } from 'src/sections/tour/view';
 
 // ----------------------------------------------------------------------

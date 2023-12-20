@@ -1,80 +1,60 @@
-import { forwardRef } from 'react';
-
-import Box from '@mui/material/Box';
+// @mui
 import Link from '@mui/material/Link';
-import { alpha, styled } from '@mui/material/styles';
-import ListItemButton from '@mui/material/ListItemButton';
-
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+// routes
 import { RouterLink } from 'src/routes/components';
-
+// components
 import Iconify from 'src/components/iconify';
-
-import { NavItemProps, NavItemStateProps } from '../types';
+//
+import { NavItemMobileProps } from '../types';
+import { ListItem } from './styles';
 
 // ----------------------------------------------------------------------
 
-export const NavItem = forwardRef<HTMLDivElement, NavItemProps>(
-  ({ title, path, icon, open, active, hasChild, externalLink, ...other }, ref) => {
-    const renderContent = (
-      <StyledNavItem ref={ref} open={open} active={active} {...other}>
-        <Box component="span" sx={{ mr: 2, display: 'inline-flex' }}>
-          {icon}
-        </Box>
+export default function NavItem({
+  item,
+  open,
+  active,
+  externalLink,
+  ...other
+}: NavItemMobileProps) {
+  const { title, path, icon, children } = item;
 
-        <Box component="span" sx={{ flexGrow: 1 }}>
-          {title}
-        </Box>
+  const renderContent = (
+    <ListItem active={active} {...other}>
+      <ListItemIcon> {icon} </ListItemIcon>
 
-        {hasChild && (
-          <Iconify
-            width={16}
-            icon={open ? 'eva:arrow-ios-downward-fill' : 'eva:arrow-ios-forward-fill'}
-          />
-        )}
-      </StyledNavItem>
-    );
+      <ListItemText disableTypography primary={title} />
 
-    if (hasChild) {
-      return renderContent;
-    }
+      {!!children && (
+        <Iconify
+          width={16}
+          icon={open ? 'eva:arrow-ios-downward-fill' : 'eva:arrow-ios-forward-fill'}
+          sx={{ ml: 1 }}
+        />
+      )}
+    </ListItem>
+  );
 
-    if (externalLink)
-      return (
-        <Link href={path} target="_blank" rel="noopener" color="inherit" underline="none">
-          {renderContent}
-        </Link>
-      );
-
+  // External link
+  if (externalLink) {
     return (
-      <Link component={RouterLink} href={path} color="inherit" underline="none">
+      <Link href={path} target="_blank" rel="noopener" underline="none">
         {renderContent}
       </Link>
     );
   }
-);
 
-// ----------------------------------------------------------------------
+  // Has child
+  if (children) {
+    return renderContent;
+  }
 
-const StyledNavItem = styled(ListItemButton, {
-  shouldForwardProp: (prop) => prop !== 'active',
-})<NavItemStateProps>(({ open, active, theme }) => {
-  const opened = open && !active;
-
-  return {
-    ...theme.typography.body2,
-    color: theme.palette.text.secondary,
-    fontWeight: theme.typography.fontWeightMedium,
-    height: 48,
-    ...(active && {
-      color: theme.palette.primary.main,
-      fontWeight: theme.typography.fontWeightSemiBold,
-      backgroundColor: alpha(theme.palette.primary.main, 0.08),
-      '&:hover': {
-        backgroundColor: alpha(theme.palette.primary.main, 0.16),
-      },
-    }),
-    ...(opened && {
-      backgroundColor: theme.palette.action.hover,
-    }),
-  };
-});
+  // Default
+  return (
+    <Link component={RouterLink} href={path} underline="none">
+      {renderContent}
+    </Link>
+  );
+}

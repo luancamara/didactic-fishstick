@@ -1,28 +1,28 @@
 import { useState, useEffect, useCallback } from 'react';
-
-import Box from '@mui/material/Box';
+// @mui
+import { useTheme } from '@mui/material/styles';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
 import Slider from '@mui/material/Slider';
 import Tooltip from '@mui/material/Tooltip';
-import { CardProps } from '@mui/material/Card';
-import { useTheme } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
 import CardHeader from '@mui/material/CardHeader';
 import Typography from '@mui/material/Typography';
 import DialogTitle from '@mui/material/DialogTitle';
+import { CardProps } from '@mui/material/Card';
 import ListItemText from '@mui/material/ListItemText';
 import DialogActions from '@mui/material/DialogActions';
 import Dialog, { DialogProps } from '@mui/material/Dialog';
 import Input, { InputProps, inputClasses } from '@mui/material/Input';
-
+// hooks
 import { useBoolean } from 'src/hooks/use-boolean';
-
+// utils
 import { fCurrency } from 'src/utils/format-number';
-
+// components
 import Iconify from 'src/components/iconify';
-import Carousel, { useCarousel, CarouselArrows } from 'src/components/carousel';
+import Carousel, { CarouselArrows, useCarousel } from 'src/components/carousel';
 
 // ----------------------------------------------------------------------
 

@@ -1,3 +1,4 @@
+// components
 import PricingView from 'src/sections/pricing/view';
 
 // ----------------------------------------------------------------------

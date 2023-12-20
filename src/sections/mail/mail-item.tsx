@@ -1,12 +1,12 @@
 import { formatDistanceToNowStrict } from 'date-fns';
-
+// @mui
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemButton, { ListItemButtonProps } from '@mui/material/ListItemButton';
-
+// types
 import { IMail } from 'src/types/mail';
 
 // ----------------------------------------------------------------------
@@ -14,11 +14,13 @@ import { IMail } from 'src/types/mail';
 type Props = ListItemButtonProps & {
   mail: IMail;
   selected: boolean;
+  onClickMail: VoidFunction;
 };
 
-export default function MailItem({ mail, selected, sx, ...other }: Props) {
+export default function MailItem({ mail, selected, onClickMail, sx, ...other }: Props) {
   return (
     <ListItemButton
+      onClick={onClickMail}
       sx={{
         p: 1,
         mb: 0.5,
@@ -30,11 +32,7 @@ export default function MailItem({ mail, selected, sx, ...other }: Props) {
       }}
       {...other}
     >
-      <Avatar
-        alt={mail.from.name}
-        src={mail.from.avatarUrl ? `${mail.from.avatarUrl}` : ''}
-        sx={{ mr: 2 }}
-      >
+      <Avatar alt={mail.from.name} src={`${mail.from.avatarUrl}`} sx={{ mr: 2 }}>
         {mail.from.name.charAt(0).toUpperCase()}
       </Avatar>
 

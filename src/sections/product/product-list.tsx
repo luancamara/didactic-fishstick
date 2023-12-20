@@ -1,8 +1,9 @@
+// @mui
 import Box, { BoxProps } from '@mui/material/Box';
 import Pagination, { paginationClasses } from '@mui/material/Pagination';
-
+// types
 import { IProductItem } from 'src/types/product';
-
+//
 import ProductItem from './product-item';
 import { ProductItemSkeleton } from './product-skeleton';
 

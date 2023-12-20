@@ -1,3 +1,4 @@
+// sections
 import RatingView from 'src/sections/_examples/mui/rating-view';
 
 // ----------------------------------------------------------------------

@@ -1,3 +1,4 @@
+// @mui
 import Link from '@mui/material/Link';
 import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
@@ -6,15 +7,15 @@ import Divider from '@mui/material/Divider';
 import CardHeader from '@mui/material/CardHeader';
 import Typography from '@mui/material/Typography';
 import ListItemText from '@mui/material/ListItemText';
-
-import { useBoolean } from 'src/hooks/use-boolean';
-
+// types
+import { IUserAccountBillingHistory } from 'src/types/user';
+// utils
 import { fDate } from 'src/utils/format-time';
 import { fCurrency } from 'src/utils/format-number';
-
+// hooks
+import { useBoolean } from 'src/hooks/use-boolean';
+// components
 import Iconify from 'src/components/iconify';
-
-import { IUserAccountBillingHistory } from 'src/types/user';
 
 // ----------------------------------------------------------------------
 

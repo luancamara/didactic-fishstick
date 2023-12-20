@@ -1,10 +1,11 @@
+// @mui
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import ListItemButton from '@mui/material/ListItemButton';
-
-import SearchNotFound from 'src/components/search-not-found';
-
+// types
 import { IChatParticipant } from 'src/types/chat';
+//
+import SearchNotFound from 'src/components/search-not-found';
 
 // ----------------------------------------------------------------------
 

@@ -1,3 +1,4 @@
+// sections
 import MaintenanceView from 'src/sections/maintenance/view';
 
 // ----------------------------------------------------------------------

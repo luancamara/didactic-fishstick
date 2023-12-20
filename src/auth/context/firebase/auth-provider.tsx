@@ -1,8 +1,7 @@
 'use client';
 
+import { useEffect, useReducer, useCallback, useMemo } from 'react';
 import { initializeApp } from 'firebase/app';
-import { useMemo, useEffect, useReducer, useCallback } from 'react';
-import { doc, getDoc, setDoc, collection, getFirestore } from 'firebase/firestore';
 import {
   getAuth,
   signOut,
@@ -16,11 +15,12 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
 } from 'firebase/auth';
-
+import { getFirestore, collection, doc, getDoc, setDoc } from 'firebase/firestore';
+// config
 import { FIREBASE_API } from 'src/config-global';
-
+//
 import { AuthContext } from './auth-context';
-import { AuthUserType, ActionMapType, AuthStateType } from '../../types';
+import { ActionMapType, AuthStateType, AuthUserType } from '../../types';
 
 // ----------------------------------------------------------------------
 

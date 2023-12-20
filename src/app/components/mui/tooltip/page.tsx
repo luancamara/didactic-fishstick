@@ -1,3 +1,4 @@
+// sections
 import TooltipView from 'src/sections/_examples/mui/tooltip-view';
 
 // ----------------------------------------------------------------------

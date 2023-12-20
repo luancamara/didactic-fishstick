@@ -1,19 +1,18 @@
 import { memo } from 'react';
-
+// @mui
+import { useTheme } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import { useTheme } from '@mui/material/styles';
-
-import { useMockedUser } from 'src/hooks/use-mocked-user';
-
+// theme
 import { bgBlur } from 'src/theme/css';
-
-import Scrollbar from 'src/components/scrollbar';
+// hooks
+import { useMockedUser } from 'src/hooks/use-mocked-user';
+// components
 import { NavSectionHorizontal } from 'src/components/nav-section';
-
+//
 import { HEADER } from '../config-layout';
 import { useNavData } from './config-navigation';
-import HeaderShadow from '../common/header-shadow';
+import { HeaderShadow } from '../_common';
 
 // ----------------------------------------------------------------------
 
@@ -26,7 +25,7 @@ function NavHorizontal() {
 
   return (
     <AppBar
-      component="div"
+      component="nav"
       sx={{
         top: HEADER.H_DESKTOP_OFFSET,
       }}
@@ -38,23 +37,12 @@ function NavHorizontal() {
           }),
         }}
       >
-        <Scrollbar
-          sx={{
-            '& .simplebar-content': {
-              display: 'flex',
-            },
+        <NavSectionHorizontal
+          data={navData}
+          config={{
+            currentRole: user?.role || 'admin',
           }}
-        >
-          <NavSectionHorizontal
-            data={navData}
-            slotProps={{
-              currentRole: user?.role,
-            }}
-            sx={{
-              ...theme.mixins.toolbar,
-            }}
-          />
-        </Scrollbar>
+        />
       </Toolbar>
 
       <HeaderShadow />

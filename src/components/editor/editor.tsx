@@ -1,11 +1,9 @@
-/* eslint-disable perfectionist/sort-imports */
 import 'src/utils/highlight';
-
 import dynamic from 'next/dynamic';
-
+// @mui
 import { alpha } from '@mui/material/styles';
 import Skeleton from '@mui/material/Skeleton';
-
+//
 import { EditorProps } from './types';
 import { StyledEditor } from './styles';
 import Toolbar, { formats } from './toolbar';
@@ -20,8 +18,8 @@ const ReactQuill = dynamic(() => import('react-quill'), {
         right: 0,
         bottom: 0,
         height: 1,
-        borderRadius: 1,
         position: 'absolute',
+        borderRadius: 1,
       }}
     />
   ),
@@ -65,7 +63,7 @@ export default function Editor({
           ...sx,
         }}
       >
-        <Toolbar id={id} simple={simple} />
+        <Toolbar id={id} isSimple={simple} />
 
         <ReactQuill
           modules={modules}

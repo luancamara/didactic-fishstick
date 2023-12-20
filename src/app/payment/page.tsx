@@ -1,3 +1,4 @@
+// sections
 import { PaymentView } from 'src/sections/payment/view';
 
 // ----------------------------------------------------------------------

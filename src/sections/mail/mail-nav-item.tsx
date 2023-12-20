@@ -1,10 +1,11 @@
+// @mui
 import Typography from '@mui/material/Typography';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemButton from '@mui/material/ListItemButton';
-
-import Iconify, { IconifyProps } from 'src/components/iconify';
-
+// types
 import { IMailLabel } from 'src/types/mail';
+// components
+import Iconify, { IconifyProps } from 'src/components/iconify';
 
 // ----------------------------------------------------------------------
 

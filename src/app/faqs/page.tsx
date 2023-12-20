@@ -1,3 +1,4 @@
+// sections
 import { FaqsView } from 'src/sections/faqs/view';
 
 // ----------------------------------------------------------------------

@@ -1,38 +1,40 @@
 'use client';
 
 import Calendar from '@fullcalendar/react'; // => request placed at the top
+import interactionPlugin from '@fullcalendar/interaction';
 import listPlugin from '@fullcalendar/list';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import timelinePlugin from '@fullcalendar/timeline';
+//
 import { useState, useEffect, useCallback } from 'react';
-import interactionPlugin from '@fullcalendar/interaction';
-
+// @mui
+import { useTheme } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
-import { useTheme } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import DialogTitle from '@mui/material/DialogTitle';
-
+// utils
+import { fTimestamp } from 'src/utils/format-time';
+// hooks
 import { useBoolean } from 'src/hooks/use-boolean';
 import { useResponsive } from 'src/hooks/use-responsive';
-
-import { fTimestamp } from 'src/utils/format-time';
-
+// _mock
 import { CALENDAR_COLOR_OPTIONS } from 'src/_mock/_calendar';
-import { updateEvent, useGetEvents } from 'src/api/calendar';
-
+// api
+import { useGetEvents, updateEvent } from 'src/api/calendar';
+// components
 import Iconify from 'src/components/iconify';
 import { useSettingsContext } from 'src/components/settings';
-
-import { ICalendarEvent, ICalendarFilters, ICalendarFilterValue } from 'src/types/calendar';
-
+// types
+import { ICalendarFilters, ICalendarFilterValue, ICalendarEvent } from 'src/types/calendar';
+//
+import { useCalendar, useEvent } from '../hooks';
 import { StyledCalendar } from '../styles';
 import CalendarForm from '../calendar-form';
-import { useEvent, useCalendar } from '../hooks';
 import CalendarToolbar from '../calendar-toolbar';
 import CalendarFilters from '../calendar-filters';
 import CalendarFiltersResult from '../calendar-filters-result';

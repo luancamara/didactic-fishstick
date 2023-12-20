@@ -1,5 +1,6 @@
+// _mock
 import { _tours } from 'src/_mock/_tour';
-
+// sections
 import { TourEditView } from 'src/sections/tour/view';
 
 // ----------------------------------------------------------------------

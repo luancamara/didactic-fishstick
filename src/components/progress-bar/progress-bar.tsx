@@ -2,7 +2,6 @@
 
 import { useEffect } from 'react';
 import NProgress from 'nprogress';
-
 import StyledProgressBar from './styles';
 
 type PushStateInput = [data: any, unused: string, url?: string | URL | null | undefined];
@@ -19,15 +18,10 @@ export default function ProgressBar() {
       }
     };
 
-    const handleMutation = () => {
+    const handleMutation: MutationCallback = () => {
       const anchorElements: NodeListOf<HTMLAnchorElement> = document.querySelectorAll('a[href]');
 
-      const filteredAnchors = Array.from(anchorElements).filter((element) => {
-        const href = element.getAttribute('href');
-        return href && href.startsWith('/');
-      });
-
-      filteredAnchors.forEach((anchor) => anchor.addEventListener('click', handleAnchorClick));
+      anchorElements.forEach((anchor) => anchor.addEventListener('click', handleAnchorClick));
     };
 
     const mutationObserver = new MutationObserver(handleMutation);

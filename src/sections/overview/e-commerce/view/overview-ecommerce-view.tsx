@@ -1,22 +1,24 @@
 'use client';
 
-import Button from '@mui/material/Button';
+// @mui
 import { useTheme } from '@mui/material/styles';
+import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
-
+// hooks
 import { useMockedUser } from 'src/hooks/use-mocked-user';
-
-import { MotivationIllustration } from 'src/assets/illustrations';
+// _mock
 import {
   _ecommerceNewProducts,
-  _ecommerceBestSalesman,
   _ecommerceSalesOverview,
+  _ecommerceBestSalesman,
   _ecommerceLatestProducts,
 } from 'src/_mock';
-
+// components
 import { useSettingsContext } from 'src/components/settings';
-
+// assets
+import { MotivationIllustration } from 'src/assets/illustrations';
+//
 import EcommerceWelcome from '../ecommerce-welcome';
 import EcommerceNewProducts from '../ecommerce-new-products';
 import EcommerceYearlySales from '../ecommerce-yearly-sales';

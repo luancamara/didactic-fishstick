@@ -1,9 +1,10 @@
+// @mui
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Switch from '@mui/material/Switch';
 import IconButton from '@mui/material/IconButton';
 import FormControlLabel from '@mui/material/FormControlLabel';
-
+// components
 import Iconify from 'src/components/iconify';
 
 // ----------------------------------------------------------------------

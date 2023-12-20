@@ -1,3 +1,4 @@
+// components
 import Chart, { useChart } from 'src/components/chart';
 
 // ----------------------------------------------------------------------
@@ -29,7 +30,5 @@ export default function ChartColumnSingle({ series }: Props) {
     },
   });
 
-  return (
-    <Chart dir="ltr" type="bar" series={series} options={chartOptions} width="100%" height={320} />
-  );
+  return <Chart dir="ltr" type="bar" series={series} options={chartOptions} height={320} />;
 }

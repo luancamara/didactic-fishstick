@@ -1,3 +1,4 @@
+// sections
 import { UserCardsView } from 'src/sections/user/view';
 
 // ----------------------------------------------------------------------

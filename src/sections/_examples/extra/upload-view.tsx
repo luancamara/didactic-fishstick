@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-
+// @mui
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
@@ -11,16 +11,16 @@ import CardHeader from '@mui/material/CardHeader';
 import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
 import FormControlLabel from '@mui/material/FormControlLabel';
-
+// routes
 import { paths } from 'src/routes/paths';
-
-import { useBoolean } from 'src/hooks/use-boolean';
-
+// utils
 import { fData } from 'src/utils/format-number';
-
+// hooks
+import { useBoolean } from 'src/hooks/use-boolean';
+// components
 import Iconify from 'src/components/iconify';
 import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
-import { Upload, UploadBox, UploadAvatar } from 'src/components/upload';
+import { UploadAvatar, Upload, UploadBox } from 'src/components/upload';
 
 // ----------------------------------------------------------------------
 
@@ -139,15 +139,6 @@ export default function UploadView() {
               <UploadAvatar
                 file={avatarUrl}
                 onDrop={handleDropAvatar}
-                validator={(fileData) => {
-                  if (fileData.size > 1000000) {
-                    return {
-                      code: 'file-too-large',
-                      message: `File is larger than ${fData(1000000)}`,
-                    };
-                  }
-                  return null;
-                }}
                 helperText={
                   <Typography
                     variant="caption"

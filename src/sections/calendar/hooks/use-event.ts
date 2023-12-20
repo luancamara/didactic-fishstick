@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
 import merge from 'lodash/merge';
-
-import { CALENDAR_COLOR_OPTIONS } from 'src/_mock/_calendar';
-
+// types
 import { ICalendarRange, ICalendarEvent } from 'src/types/calendar';
+// _mock
+import { CALENDAR_COLOR_OPTIONS } from 'src/_mock/_calendar';
 
 // ----------------------------------------------------------------------
 

@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
-import createCache from '@emotion/cache';
+// rtl
 import rtlPlugin from 'stylis-plugin-rtl';
+// emotion
+import createCache from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
 
 // ----------------------------------------------------------------------
@@ -28,4 +30,14 @@ export default function RTL({ children, themeDirection }: Props) {
   }
 
   return <>{children}</>;
+}
+
+// ----------------------------------------------------------------------
+
+export function direction(themeDirection: 'rtl' | 'ltr') {
+  const theme = {
+    direction: themeDirection,
+  };
+
+  return theme;
 }

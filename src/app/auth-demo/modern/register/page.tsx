@@ -1,3 +1,4 @@
+// sections
 import { ModernRegisterView } from 'src/sections/auth-demo/modern';
 
 // ----------------------------------------------------------------------

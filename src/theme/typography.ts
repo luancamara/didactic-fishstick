@@ -1,4 +1,4 @@
-import { Barlow, Public_Sans } from 'next/font/google';
+import { Public_Sans, Barlow } from 'next/font/google';
 
 // ----------------------------------------------------------------------
 
@@ -26,20 +26,18 @@ export function responsiveFontSizes({ sm, md, lg }: { sm: number; md: number; lg
 
 declare module '@mui/material/styles' {
   interface TypographyVariants {
-    fontSecondaryFamily: React.CSSProperties['fontFamily'];
     fontWeightSemiBold: React.CSSProperties['fontWeight'];
   }
 }
-
 export const primaryFont = Public_Sans({
-  weight: ['400', '500', '600', '700', '800', '900'],
+  weight: ['400', '500', '600', '700', '800'],
   subsets: ['latin'],
   display: 'swap',
   fallback: ['Helvetica', 'Arial', 'sans-serif'],
 });
 
 export const secondaryFont = Barlow({
-  weight: ['400', '500', '600', '700', '800', '900'],
+  weight: ['900'],
   subsets: ['latin'],
   display: 'swap',
   fallback: ['Helvetica', 'Arial', 'sans-serif'],
@@ -52,7 +50,6 @@ export const secondaryFont = Barlow({
 
 export const typography = {
   fontFamily: primaryFont.style.fontFamily,
-  fontSecondaryFamily: secondaryFont.style.fontFamily,
   fontWeightRegular: 400,
   fontWeightMedium: 500,
   fontWeightSemiBold: 600,

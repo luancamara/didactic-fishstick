@@ -1,12 +1,13 @@
+// @mui
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Stack, { StackProps } from '@mui/material/Stack';
-
-import Iconify from 'src/components/iconify';
-
+// types
 import { IUserTableFilters, IUserTableFilterValue } from 'src/types/user';
+// components
+import Iconify from 'src/components/iconify';
 
 // ----------------------------------------------------------------------
 

@@ -1,7 +1,8 @@
+// @mui
+import { useTheme, alpha } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import { alpha, useTheme } from '@mui/material/styles';
 import Stack, { StackProps } from '@mui/material/Stack';
-
+// theme
 import { bgGradient } from 'src/theme/css';
 
 // ----------------------------------------------------------------------

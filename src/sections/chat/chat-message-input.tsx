@@ -1,21 +1,21 @@
 import { sub } from 'date-fns';
-import { useRef, useMemo, useState, useCallback } from 'react';
-
+import { useRef, useState, useCallback, useMemo } from 'react';
+// @mui
 import Stack from '@mui/material/Stack';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
-
+// routes
 import { paths } from 'src/routes/paths';
 import { useRouter } from 'src/routes/hooks';
-
+// hooks
 import { useMockedUser } from 'src/hooks/use-mocked-user';
-
+// utils
 import uuidv4 from 'src/utils/uuidv4';
-
+// api
 import { sendMessage, createConversation } from 'src/api/chat';
-
+// components
 import Iconify from 'src/components/iconify';
-
+// types
 import { IChatParticipant } from 'src/types/chat';
 
 // ----------------------------------------------------------------------
@@ -45,14 +45,14 @@ export default function ChatMessageInput({
 
   const myContact = useMemo(
     () => ({
-      id: `${user?.id}`,
-      role: `${user?.role}`,
-      email: `${user?.email}`,
-      address: `${user?.address}`,
-      name: `${user?.displayName}`,
+      id: user.id,
+      role: user.role,
+      email: user.email,
+      address: user.address,
+      name: user.displayName,
       lastActivity: new Date(),
-      avatarUrl: `${user?.photoURL}`,
-      phoneNumber: `${user?.phoneNumber}`,
+      avatarUrl: user.photoURL,
+      phoneNumber: user.phoneNumber,
       status: 'online' as 'online' | 'offline' | 'alway' | 'busy',
     }),
     [user]

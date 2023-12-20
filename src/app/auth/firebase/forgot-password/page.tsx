@@ -1,3 +1,4 @@
+// sections
 import { FirebaseForgotPasswordView } from 'src/sections/auth/firebase';
 
 // ----------------------------------------------------------------------

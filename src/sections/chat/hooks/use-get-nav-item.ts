@@ -1,3 +1,4 @@
+// types
 import { IChatConversation } from 'src/types/chat';
 
 // ----------------------------------------------------------------------

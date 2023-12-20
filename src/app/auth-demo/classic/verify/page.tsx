@@ -1,3 +1,4 @@
+// sections
 import { ClassicVerifyView } from 'src/sections/auth-demo/classic';
 
 // ----------------------------------------------------------------------

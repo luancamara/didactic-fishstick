@@ -1,3 +1,4 @@
+// sections
 import ComponentsView from 'src/sections/_examples/view';
 
 // ----------------------------------------------------------------------

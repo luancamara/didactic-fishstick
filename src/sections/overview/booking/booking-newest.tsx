@@ -1,17 +1,18 @@
+// @mui
+import { useTheme } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
-import { useTheme } from '@mui/material/styles';
 import Box, { BoxProps } from '@mui/material/Box';
 import CardHeader from '@mui/material/CardHeader';
 import ListItemText from '@mui/material/ListItemText';
-
+// utils
 import { fDateTime } from 'src/utils/format-time';
-
+// components
 import Label from 'src/components/label';
 import Image from 'src/components/image';
 import Iconify from 'src/components/iconify';
-import Carousel, { useCarousel, CarouselArrows } from 'src/components/carousel';
+import Carousel, { CarouselArrows, useCarousel } from 'src/components/carousel';
 
 // ----------------------------------------------------------------------
 
@@ -122,24 +123,18 @@ function BookingItem({ item }: BookingItemProps) {
         </Stack>
 
         <Stack
-          rowGap={1.5}
-          columnGap={3}
-          flexWrap="wrap"
+          spacing={3}
           direction="row"
           alignItems="center"
           sx={{ color: 'text.secondary', typography: 'caption' }}
         >
           <Stack direction="row" alignItems="center">
-            <Iconify width={16} icon="solar:calendar-date-bold" sx={{ mr: 0.5, flexShrink: 0 }} />
+            <Iconify icon="solar:calendar-date-bold" width={16} sx={{ mr: 0.5 }} />
             {duration}
           </Stack>
 
           <Stack direction="row" alignItems="center">
-            <Iconify
-              width={16}
-              icon="solar:users-group-rounded-bold"
-              sx={{ mr: 0.5, flexShrink: 0 }}
-            />
+            <Iconify icon="solar:users-group-rounded-bold" width={16} sx={{ mr: 0.5 }} />
             {guests} Guests
           </Stack>
         </Stack>

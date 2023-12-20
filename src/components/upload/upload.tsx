@@ -1,18 +1,19 @@
 import { useDropzone } from 'react-dropzone';
-
+// @mui
+import { alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import { alpha } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-
+// assets
 import { UploadIllustration } from 'src/assets/illustrations';
-
+//
 import Iconify from '../iconify';
+//
 import { UploadProps } from './types';
-import MultiFilePreview from './preview-multi-file';
 import RejectionFiles from './errors-rejection-files';
+import MultiFilePreview from './preview-multi-file';
 import SingleFilePreview from './preview-single-file';
 
 // ----------------------------------------------------------------------

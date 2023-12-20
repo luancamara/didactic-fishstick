@@ -1,3 +1,4 @@
+// sections
 import { OverviewBankingView } from 'src/sections/overview/banking/view';
 
 // ----------------------------------------------------------------------

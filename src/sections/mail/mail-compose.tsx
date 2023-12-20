@@ -1,21 +1,21 @@
 import { useState, useCallback } from 'react';
-
+// @mui
+import { alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Portal from '@mui/material/Portal';
-import { alpha } from '@mui/material/styles';
 import Backdrop from '@mui/material/Backdrop';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-
+// hooks
 import { useBoolean } from 'src/hooks/use-boolean';
 import { useResponsive } from 'src/hooks/use-responsive';
-
-import Editor from 'src/components/editor';
+// components
 import Iconify from 'src/components/iconify';
+import Editor from 'src/components/editor';
 
 // ----------------------------------------------------------------------
 

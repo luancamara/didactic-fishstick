@@ -1,5 +1,6 @@
 'use client';
 
+// components
 import AuthModernLayout from 'src/layouts/auth/modern';
 
 // ----------------------------------------------------------------------

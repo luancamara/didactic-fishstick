@@ -1,72 +1,89 @@
-import { useRef, useState, useEffect, useCallback } from 'react';
-
+import { useState, useEffect, useRef } from 'react';
+// @mui
 import Stack from '@mui/material/Stack';
 import Popover from '@mui/material/Popover';
-
+import { appBarClasses } from '@mui/material/AppBar';
+// routes
 import { usePathname } from 'src/routes/hooks';
 import { useActiveLink } from 'src/routes/hooks/use-active-link';
-
+//
+import { NavListProps, NavConfigProps } from '../types';
 import NavItem from './nav-item';
-import { NavListProps, NavSubListProps } from '../types';
 
 // ----------------------------------------------------------------------
 
-export default function NavList({ data, depth, slotProps }: NavListProps) {
-  const navRef = useRef<HTMLDivElement | null>(null);
+type NavListRootProps = {
+  data: NavListProps;
+  depth: number;
+  hasChild: boolean;
+  config: NavConfigProps;
+};
+
+export default function NavList({ data, depth, hasChild, config }: NavListRootProps) {
+  const navRef = useRef(null);
 
   const pathname = usePathname();
 
-  const active = useActiveLink(data.path, !!data.children);
+  const active = useActiveLink(data.path, hasChild);
 
-  const [openMenu, setOpenMenu] = useState(false);
+  const externalLink = data.path.includes('http');
+
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    if (openMenu) {
-      handleCloseMenu();
+    if (open) {
+      handleClose();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
-  const handleOpenMenu = useCallback(() => {
-    if (data.children) {
-      setOpenMenu(true);
-    }
-  }, [data.children]);
+  useEffect(() => {
+    const appBarEl = Array.from(
+      document.querySelectorAll(`.${appBarClasses.root}`)
+    ) as Array<HTMLElement>;
 
-  const handleCloseMenu = useCallback(() => {
-    setOpenMenu(false);
-  }, []);
+    // Reset styles when hover
+    const styles = () => {
+      document.body.style.overflow = '';
+      document.body.style.padding = '';
+      // Apply for Window
+      appBarEl.forEach((elem) => {
+        elem.style.padding = '';
+      });
+    };
+
+    if (open) {
+      styles();
+    } else {
+      styles();
+    }
+  }, [open]);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <>
       <NavItem
         ref={navRef}
-        open={openMenu}
-        onMouseEnter={handleOpenMenu}
-        onMouseLeave={handleCloseMenu}
-        //
-        title={data.title}
-        path={data.path}
-        icon={data.icon}
-        info={data.info}
-        roles={data.roles}
-        caption={data.caption}
-        disabled={data.disabled}
-        //
+        item={data}
         depth={depth}
-        hasChild={!!data.children}
-        externalLink={data.path.includes('http')}
-        currentRole={slotProps?.currentRole}
-        //
+        open={open}
         active={active}
-        className={active ? 'active' : ''}
-        sx={depth === 1 ? slotProps?.rootItem : slotProps?.subItem}
+        externalLink={externalLink}
+        onMouseEnter={handleOpen}
+        onMouseLeave={handleClose}
+        config={config}
       />
 
-      {!!data.children && (
+      {hasChild && (
         <Popover
-          disableScrollLock
-          open={openMenu}
+          open={open}
           anchorEl={navRef.current}
           anchorOrigin={
             depth === 1
@@ -80,11 +97,11 @@ export default function NavList({ data, depth, slotProps }: NavListProps) {
           }
           slotProps={{
             paper: {
-              onMouseEnter: handleOpenMenu,
-              onMouseLeave: handleCloseMenu,
+              onMouseEnter: handleOpen,
+              onMouseLeave: handleClose,
               sx: {
-                minWidth: 160,
-                ...(openMenu && {
+                width: 160,
+                ...(open && {
                   pointerEvents: 'auto',
                 }),
               },
@@ -94,7 +111,7 @@ export default function NavList({ data, depth, slotProps }: NavListProps) {
             pointerEvents: 'none',
           }}
         >
-          <NavSubList data={data.children} depth={depth} slotProps={slotProps} />
+          <NavSubList data={data.children} depth={depth} config={config} />
         </Popover>
       )}
     </>
@@ -103,11 +120,23 @@ export default function NavList({ data, depth, slotProps }: NavListProps) {
 
 // ----------------------------------------------------------------------
 
-function NavSubList({ data, depth, slotProps }: NavSubListProps) {
+type NavListSubProps = {
+  data: NavListProps[];
+  depth: number;
+  config: NavConfigProps;
+};
+
+function NavSubList({ data, depth, config }: NavListSubProps) {
   return (
     <Stack spacing={0.5}>
       {data.map((list) => (
-        <NavList key={list.title} data={list} depth={depth + 1} slotProps={slotProps} />
+        <NavList
+          key={list.title + list.path}
+          data={list}
+          depth={depth + 1}
+          hasChild={!!list.children}
+          config={config}
+        />
       ))}
     </Stack>
   );

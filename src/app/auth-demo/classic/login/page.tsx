@@ -1,3 +1,4 @@
+// sections
 import { ClassicLoginView } from 'src/sections/auth-demo/classic';
 
 // ----------------------------------------------------------------------

@@ -1,3 +1,4 @@
+// sections
 import { CalendarView } from 'src/sections/calendar/view';
 
 // ----------------------------------------------------------------------

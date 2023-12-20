@@ -1,3 +1,4 @@
+// sections
 import { ProductShopView } from 'src/sections/product/view';
 
 // ----------------------------------------------------------------------

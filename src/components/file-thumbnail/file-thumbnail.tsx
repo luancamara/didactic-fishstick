@@ -1,10 +1,10 @@
+import { Theme, SxProps } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Tooltip from '@mui/material/Tooltip';
-import { Theme, SxProps } from '@mui/material/styles';
-
+//
+import { fileData, fileFormat, fileThumb } from './utils';
 import DownloadButton from './download-button';
-import { fileData, fileThumb, fileFormat } from './utils';
 
 // ----------------------------------------------------------------------
 

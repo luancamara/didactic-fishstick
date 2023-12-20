@@ -1,41 +1,52 @@
-import { StackProps } from '@mui/material/Stack';
+// @mui
 import { Theme, SxProps } from '@mui/material/styles';
-import { ListItemButtonProps } from '@mui/material/ListItemButton';
 
 // ----------------------------------------------------------------------
 
-export type SlotProps = {
-  rootItem?: SxProps<Theme>;
-  subItem?: SxProps<Theme>;
-  subheader?: SxProps<Theme>;
-  displayProduct?: number;
+type Products = {
+  name: string;
+  coverUrl: string;
+  path: string;
 };
 
-export type NavProducts = {
+type Tags = {
   name: string;
   path: string;
-  coverUrl: string;
 };
 
-export type NavLink = {
+export type MenuCarouselProps = {
+  products: Products[];
+  numberShow?: number;
+  sx?: SxProps<Theme>;
+};
+
+export type MenuHotProductsProps = {
+  tags: Tags[];
+};
+
+export type ParentItemProps = {
   title: string;
-  path: string;
-};
-
-export type NavItemStateProps = {
-  open?: boolean;
-  active?: boolean;
-  hasChild?: boolean;
-  externalLink?: boolean;
-};
-
-export type NavItemBaseProps = {
-  title: string;
-  path: string;
+  path?: string;
   icon?: React.ReactElement;
-  tags?: NavLink[];
-  moreLink?: NavLink;
-  products?: NavProducts[];
+  open?: boolean;
+  hasSub?: boolean;
+  onClick?: VoidFunction;
+  onMouseEnter?: VoidFunction;
+  onMouseLeave?: VoidFunction;
+  component?: React.ReactNode;
+  to?: string;
+};
+
+export type MegaMenuItemProps = {
+  title: string;
+  path: string;
+  icon: React.ReactElement;
+  more?: {
+    title: string;
+    path: string;
+  };
+  products?: Products[];
+  tags?: Tags[];
   children?: {
     subheader: string;
     items: {
@@ -43,29 +54,4 @@ export type NavItemBaseProps = {
       path: string;
     }[];
   }[];
-};
-
-export type NavItemProps = ListItemButtonProps & NavItemBaseProps & NavItemStateProps;
-
-export type NavListProps = {
-  data: NavItemBaseProps;
-  slotProps?: SlotProps;
-};
-
-export type NavSubListProps = StackProps & {
-  data: {
-    subheader: string;
-    items: {
-      title: string;
-      path: string;
-    }[];
-  }[];
-  slotProps?: SlotProps;
-  title?: string;
-  onCloseMenu?: VoidFunction;
-};
-
-export type NavProps = StackProps & {
-  data: NavItemBaseProps[];
-  slotProps?: SlotProps;
 };

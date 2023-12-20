@@ -1,8 +1,9 @@
-import Box from '@mui/material/Box';
+// @mui
 import { alpha } from '@mui/material/styles';
+import Box from '@mui/material/Box';
 import ButtonBase from '@mui/material/ButtonBase';
-
-import { presetOptions } from 'src/theme/options/presets';
+// theme
+import { primaryPresets } from 'src/theme/options/presets';
 
 // ----------------------------------------------------------------------
 
@@ -12,9 +13,14 @@ type PresetsOptionsProps = {
 };
 
 export default function PresetsOptions({ value, onChange }: PresetsOptionsProps) {
+  const options = primaryPresets.map((color) => ({
+    name: color.name,
+    value: color.main,
+  }));
+
   return (
     <Box columnGap={2} rowGap={1.5} display="grid" gridTemplateColumns="repeat(3, 1fr)">
-      {presetOptions.map((option) => {
+      {options.map((option) => {
         const selected = value === option.name;
 
         return (

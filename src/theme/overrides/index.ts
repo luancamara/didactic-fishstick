@@ -1,7 +1,8 @@
 import merge from 'lodash/merge';
-
 import { Theme } from '@mui/material/styles';
-
+//
+import { defaultProps } from './default-props';
+//
 import { fab } from './components/fab';
 import { card } from './components/card';
 import { chip } from './components/chip';
@@ -21,7 +22,6 @@ import { rating } from './components/rating';
 import { slider } from './components/slider';
 import { button } from './components/button';
 import { select } from './components/select';
-import { defaultProps } from './default-props';
 import { switches } from './components/switch';
 import { tooltip } from './components/tooltip';
 import { popover } from './components/popover';

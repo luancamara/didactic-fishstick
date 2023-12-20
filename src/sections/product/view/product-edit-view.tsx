@@ -1,14 +1,15 @@
 'use client';
 
+// @mui
 import Container from '@mui/material/Container';
-
+// routes
 import { paths } from 'src/routes/paths';
-
+// api
 import { useGetProduct } from 'src/api/product';
-
+// components
 import { useSettingsContext } from 'src/components/settings';
 import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
-
+//
 import ProductNewEditForm from '../product-new-edit-form';
 
 // ----------------------------------------------------------------------

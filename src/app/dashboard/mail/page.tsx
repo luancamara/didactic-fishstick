@@ -1,3 +1,4 @@
+// sections
 import { MailView } from 'src/sections/mail/view';
 
 // ----------------------------------------------------------------------

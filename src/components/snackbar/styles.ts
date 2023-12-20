@@ -1,11 +1,11 @@
 import { MaterialDesignContent } from 'notistack';
-
-import { alpha, styled } from '@mui/material/styles';
+// @mui
+import { styled, alpha } from '@mui/material/styles';
 
 // ----------------------------------------------------------------------
 
 export const StyledNotistack = styled(MaterialDesignContent)(({ theme }) => {
-  const lightMode = theme.palette.mode === 'light';
+  const isLight = theme.palette.mode === 'light';
 
   return {
     '& #notistack-snackbar': {
@@ -14,16 +14,17 @@ export const StyledNotistack = styled(MaterialDesignContent)(({ theme }) => {
       flexGrow: 1,
     },
     '&.notistack-MuiContent': {
+      padding: theme.spacing(0.5),
+      paddingRight: theme.spacing(2),
       color: theme.palette.text.primary,
       boxShadow: theme.customShadows.z8,
       borderRadius: theme.shape.borderRadius,
-      padding: theme.spacing(0.5, 2, 0.5, 0.5),
       backgroundColor: theme.palette.background.paper,
     },
     '&.notistack-MuiContent-default': {
-      padding: theme.spacing(1, 2, 1, 1),
-      color: lightMode ? theme.palette.common.white : theme.palette.grey[800],
-      backgroundColor: lightMode ? theme.palette.grey[800] : theme.palette.common.white,
+      padding: theme.spacing(1),
+      color: isLight ? theme.palette.common.white : theme.palette.grey[800],
+      backgroundColor: isLight ? theme.palette.grey[800] : theme.palette.common.white,
     },
     // '&.notistack-MuiContent-info': {},
     // '&.notistack-MuiContent-success': {},

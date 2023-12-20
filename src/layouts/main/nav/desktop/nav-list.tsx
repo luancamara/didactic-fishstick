@@ -1,90 +1,81 @@
-import { useState, useEffect, useCallback } from 'react';
+'use client';
 
+import { useEffect } from 'react';
+// @mui
 import Fade from '@mui/material/Fade';
-import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Portal from '@mui/material/Portal';
-import { useTheme } from '@mui/material/styles';
-import ListSubheader from '@mui/material/ListSubheader';
-
+// hooks
+import { useBoolean } from 'src/hooks/use-boolean';
+// routes
 import { usePathname } from 'src/routes/hooks';
 import { useActiveLink } from 'src/routes/hooks/use-active-link';
-
-import { paper } from 'src/theme/css';
-
-import { HEADER } from '../../../config-layout';
+//
+import { NavItemProps } from '../types';
 import { NavItem, NavItemDashboard } from './nav-item';
-import { NavListProps, NavSubListProps } from '../types';
+import { StyledSubheader, StyledMenu } from './styles';
 
 // ----------------------------------------------------------------------
 
-export default function NavList({ data }: NavListProps) {
-  const theme = useTheme();
+type NavListProps = {
+  item: NavItemProps;
+  offsetTop: boolean;
+};
 
+export default function NavList({ item, offsetTop }: NavListProps) {
   const pathname = usePathname();
 
-  const active = useActiveLink(data.path, !!data.children);
+  const nav = useBoolean();
 
-  const [openMenu, setOpenMenu] = useState(false);
+  const { path, children } = item;
+
+  const active = useActiveLink(path, false);
+
+  const externalLink = path.includes('http');
 
   useEffect(() => {
-    if (openMenu) {
-      handleCloseMenu();
+    if (nav.value) {
+      nav.onFalse();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
-  const handleOpenMenu = useCallback(() => {
-    if (data.children) {
-      setOpenMenu(true);
+  const handleOpenMenu = () => {
+    if (children) {
+      nav.onTrue();
     }
-  }, [data.children]);
-
-  const handleCloseMenu = useCallback(() => {
-    setOpenMenu(false);
-  }, []);
+  };
 
   return (
     <>
       <NavItem
-        open={openMenu}
-        onMouseEnter={handleOpenMenu}
-        onMouseLeave={handleCloseMenu}
-        //
-        title={data.title}
-        path={data.path}
-        //
-        hasChild={!!data.children}
-        externalLink={data.path.includes('http')}
-        //
+        item={item}
+        offsetTop={offsetTop}
         active={active}
+        open={nav.value}
+        externalLink={externalLink}
+        onMouseEnter={handleOpenMenu}
+        onMouseLeave={nav.onFalse}
       />
 
-      {!!data.children && openMenu && (
+      {!!children && nav.value && (
         <Portal>
-          <Fade in={openMenu}>
-            <Paper
+          <Fade in={nav.value}>
+            <StyledMenu
               onMouseEnter={handleOpenMenu}
-              onMouseLeave={handleCloseMenu}
-              sx={{
-                ...paper({ theme }),
-                left: 0,
-                right: 0,
-                m: 'auto',
-                display: 'flex',
-                borderRadius: 2,
-                position: 'fixed',
-                zIndex: theme.zIndex.modal,
-                p: theme.spacing(5, 1, 1, 3),
-                top: HEADER.H_DESKTOP_OFFSET,
-                maxWidth: theme.breakpoints.values.lg,
-                boxShadow: theme.customShadows.dropdown,
-              }}
+              onMouseLeave={nav.onFalse}
+              sx={{ display: 'flex' }}
             >
-              {data.children.map((list) => (
-                <NavSubList key={list.subheader} subheader={list.subheader} data={list.items} />
+              {children.map((list) => (
+                <NavSubList
+                  key={list.subheader}
+                  subheader={list.subheader}
+                  items={list.items}
+                  isDashboard={list.subheader === 'Dashboard'}
+                  onClose={nav.onFalse}
+                />
               ))}
-            </Paper>
+            </StyledMenu>
           </Fade>
         </Portal>
       )}
@@ -94,48 +85,39 @@ export default function NavList({ data }: NavListProps) {
 
 // ----------------------------------------------------------------------
 
-function NavSubList({ data, subheader, sx, ...other }: NavSubListProps) {
-  const pathname = usePathname();
+type NavSubListProps = {
+  isDashboard: boolean;
+  subheader: string;
+  items: NavItemProps[];
+  onClose: VoidFunction;
+};
 
-  const dashboard = subheader === 'Dashboard';
+function NavSubList({ items, isDashboard, subheader, onClose }: NavSubListProps) {
+  const pathname = usePathname();
 
   return (
     <Stack
       spacing={2}
-      flexGrow={1}
       alignItems="flex-start"
       sx={{
-        pb: 2,
-        ...(dashboard && {
-          pb: 0,
-          maxWidth: { md: 1 / 3, lg: 540 },
+        flexGrow: 1,
+        ...(isDashboard && {
+          maxWidth: 540,
         }),
-        ...sx,
       }}
-      {...other}
     >
-      <ListSubheader
-        disableSticky
-        sx={{
-          p: 0,
-          typography: 'overline',
-          fontSize: 11,
-          color: 'text.primary',
-        }}
-      >
-        {subheader}
-      </ListSubheader>
+      <StyledSubheader disableSticky>{subheader}</StyledSubheader>
 
-      {data.map((item) =>
-        dashboard ? (
-          <NavItemDashboard key={item.title} path={item.path} />
+      {items.map((item) =>
+        isDashboard ? (
+          <NavItemDashboard key={item.title} item={item} onClick={onClose} />
         ) : (
           <NavItem
-            key={item.title}
-            title={item.title}
-            path={item.path}
-            active={pathname === item.path || pathname === `${item.path}/`}
             subItem
+            key={item.title}
+            item={item}
+            active={pathname === `${item.path}/`}
+            onClick={onClose}
           />
         )
       )}

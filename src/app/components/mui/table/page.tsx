@@ -1,3 +1,4 @@
+// sections
 import TableView from 'src/sections/_examples/mui/table-view';
 
 // ----------------------------------------------------------------------

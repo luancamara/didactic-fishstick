@@ -1,3 +1,4 @@
+// sections
 import { AccountView } from 'src/sections/account/view';
 
 // ----------------------------------------------------------------------

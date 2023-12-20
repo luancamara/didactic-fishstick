@@ -1,6 +1,7 @@
+// utils
 import { paramCase } from 'src/utils/change-case';
 import axios, { endpoints } from 'src/utils/axios';
-
+// sections
 import { PostEditView } from 'src/sections/blog/view';
 
 // ----------------------------------------------------------------------

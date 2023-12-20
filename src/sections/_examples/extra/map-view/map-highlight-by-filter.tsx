@@ -1,9 +1,9 @@
-import { memo, useMemo, useState, useCallback } from 'react';
+import { useState, useCallback, useMemo, memo } from 'react';
 import Map, { Layer, Source, FillLayer, MapLayerMouseEvent } from 'react-map-gl';
-
+// @mui
 import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-
+// components
 import { MapPopup, MapControl, MapBoxProps } from 'src/components/map';
 
 // ----------------------------------------------------------------------

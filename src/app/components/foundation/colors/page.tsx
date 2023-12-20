@@ -1,3 +1,4 @@
+// sections
 import { ColorsView } from 'src/sections/_examples/foundation';
 
 // ----------------------------------------------------------------------

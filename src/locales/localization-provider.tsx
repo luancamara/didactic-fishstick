@@ -1,9 +1,10 @@
 'use client';
 
+// @mui
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider as MuiLocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-
-import { useLocales } from './use-locales';
+//
+import useLocales from './use-locales';
 
 // ----------------------------------------------------------------------
 

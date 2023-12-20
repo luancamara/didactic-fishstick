@@ -1,7 +1,8 @@
+// @mui
 import { styled } from '@mui/material/styles';
-
+// utils
 import { fNumber } from 'src/utils/format-number';
-
+// components
 import Chart, { useChart } from 'src/components/chart';
 
 // ----------------------------------------------------------------------
@@ -59,13 +60,6 @@ export default function ChartRadialBar({ series }: Props) {
   });
 
   return (
-    <StyledChart
-      dir="ltr"
-      type="radialBar"
-      series={series}
-      options={chartOptions}
-      width="100%"
-      height={280}
-    />
+    <StyledChart dir="ltr" type="radialBar" series={series} options={chartOptions} height={280} />
   );
 }

@@ -2,20 +2,12 @@
 
 import merge from 'lodash/merge';
 import {
+  enUS as enUSAdapter,
   fr as frFRAdapter,
   vi as viVNAdapter,
-  enUS as enUSAdapter,
   zhCN as zhCNAdapter,
   arSA as arSAAdapter,
 } from 'date-fns/locale';
-
-// date-pickers
-import {
-  enUS as enUSDate,
-  frFR as frFRDate,
-  viVN as viVNDate,
-  zhCN as zhCNDate,
-} from '@mui/x-date-pickers/locales';
 // core
 import {
   enUS as enUSCore,
@@ -24,6 +16,13 @@ import {
   zhCN as zhCNCore,
   arSA as arSACore,
 } from '@mui/material/locale';
+// date-pickers
+import {
+  enUS as enUSDate,
+  frFR as frFRDate,
+  viVN as viVNDate,
+  zhCN as zhCNDate,
+} from '@mui/x-date-pickers/locales';
 // data-grid
 import {
   enUS as enUSDataGrid,

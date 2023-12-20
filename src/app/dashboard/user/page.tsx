@@ -1,3 +1,4 @@
+// sections
 import { UserProfileView } from 'src/sections/user/view';
 
 // ----------------------------------------------------------------------

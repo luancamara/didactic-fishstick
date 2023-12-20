@@ -1,9 +1,10 @@
+// sections
 import MarkdownView from 'src/sections/_examples/extra/markdown-view';
 
 // ----------------------------------------------------------------------
 
 export const metadata = {
-  title: 'Components: Markdown',
+  title: 'Extra: Markdown',
 };
 
 export default function MarkdownPage() {

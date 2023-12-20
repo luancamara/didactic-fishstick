@@ -1,3 +1,4 @@
+// sections
 import { ModernLoginView } from 'src/sections/auth-demo/modern';
 
 // ----------------------------------------------------------------------

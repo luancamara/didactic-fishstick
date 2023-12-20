@@ -1,5 +1,6 @@
+// _mock
 import { _invoices } from 'src/_mock/_invoice';
-
+// sections
 import { InvoiceEditView } from 'src/sections/invoice/view';
 
 // ----------------------------------------------------------------------

@@ -1,12 +1,13 @@
+// @mui
+import { alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
 import Card, { CardProps } from '@mui/material/Card';
-import { alpha, useTheme } from '@mui/material/styles';
-
+// components
 import Image from 'src/components/image';
-import Carousel, { useCarousel, CarouselDots } from 'src/components/carousel';
+import Carousel, { CarouselDots, useCarousel } from 'src/components/carousel';
 
 // ----------------------------------------------------------------------
 

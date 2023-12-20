@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
-
+// @mui
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import Badge from '@mui/material/Badge';
@@ -13,13 +14,12 @@ import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Autocomplete from '@mui/material/Autocomplete';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import FormControlLabel from '@mui/material/FormControlLabel';
-
+// types
+import { ITourFilters, ITourGuide, ITourFilterValue } from 'src/types/tour';
+// components
 import Iconify from 'src/components/iconify';
 import Scrollbar from 'src/components/scrollbar';
-
-import { ITourGuide, ITourFilters, ITourFilterValue } from 'src/types/tour';
 
 // ----------------------------------------------------------------------
 

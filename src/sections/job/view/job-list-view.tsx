@@ -3,17 +3,16 @@
 import orderBy from 'lodash/orderBy';
 import isEqual from 'lodash/isEqual';
 import { useState, useCallback } from 'react';
-
+// @mui
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
-
+// routes
 import { paths } from 'src/routes/paths';
 import { RouterLink } from 'src/routes/components';
-
+// hooks
 import { useBoolean } from 'src/hooks/use-boolean';
-
-import { countries } from 'src/assets/data';
+// _mock
 import {
   _jobs,
   _roles,
@@ -22,14 +21,16 @@ import {
   JOB_EXPERIENCE_OPTIONS,
   JOB_EMPLOYMENT_TYPE_OPTIONS,
 } from 'src/_mock';
-
+// assets
+import { countries } from 'src/assets/data';
+// components
 import Iconify from 'src/components/iconify';
 import EmptyContent from 'src/components/empty-content';
 import { useSettingsContext } from 'src/components/settings';
 import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
-
+// types
 import { IJobItem, IJobFilters, IJobFilterValue } from 'src/types/job';
-
+//
 import JobList from '../job-list';
 import JobSort from '../job-sort';
 import JobSearch from '../job-search';

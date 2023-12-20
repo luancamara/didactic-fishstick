@@ -1,23 +1,26 @@
 import { memo, useState, useCallback } from 'react';
-
+// @mui
+import List from '@mui/material/List';
 import Stack from '@mui/material/Stack';
 import Collapse from '@mui/material/Collapse';
-import ListSubheader from '@mui/material/ListSubheader';
+//
+import { NavSectionProps, NavListProps, NavConfigProps } from '../types';
+import { navVerticalConfig } from '../config';
+import { StyledSubheader } from './styles';
 
 import NavList from './nav-list';
-import { NavProps, NavGroupProps } from '../types';
 
 // ----------------------------------------------------------------------
 
-function NavSectionVertical({ data, slotProps, ...other }: NavProps) {
+function NavSectionVertical({ data, config, sx, ...other }: NavSectionProps) {
   return (
-    <Stack component="nav" id="nav-section-vertical" {...other}>
+    <Stack sx={sx} {...other}>
       {data.map((group, index) => (
         <Group
           key={group.subheader || index}
           subheader={group.subheader}
           items={group.items}
-          slotProps={slotProps}
+          config={navVerticalConfig(config)}
         />
       ))}
     </Stack>
@@ -28,7 +31,13 @@ export default memo(NavSectionVertical);
 
 // ----------------------------------------------------------------------
 
-function Group({ subheader, items, slotProps }: NavGroupProps) {
+type GroupProps = {
+  subheader: string;
+  items: NavListProps[];
+  config: NavConfigProps;
+};
+
+function Group({ subheader, items, config }: GroupProps) {
   const [open, setOpen] = useState(true);
 
   const handleToggle = useCallback(() => {
@@ -36,43 +45,28 @@ function Group({ subheader, items, slotProps }: NavGroupProps) {
   }, []);
 
   const renderContent = items.map((list) => (
-    <NavList key={list.title} data={list} depth={1} slotProps={slotProps} />
+    <NavList
+      key={list.title + list.path}
+      data={list}
+      depth={1}
+      hasChild={!!list.children}
+      config={config}
+    />
   ));
 
   return (
-    <Stack sx={{ px: 2 }}>
+    <List disablePadding sx={{ px: 2 }}>
       {subheader ? (
         <>
-          <ListSubheader
-            disableGutters
-            disableSticky
-            onClick={handleToggle}
-            sx={{
-              fontSize: 11,
-              cursor: 'pointer',
-              typography: 'overline',
-              display: 'inline-flex',
-              color: 'text.disabled',
-              mb: `${slotProps?.gap || 4}px`,
-              p: (theme) => theme.spacing(2, 1, 1, 1.5),
-              transition: (theme) =>
-                theme.transitions.create(['color'], {
-                  duration: theme.transitions.duration.shortest,
-                }),
-              '&:hover': {
-                color: 'text.primary',
-              },
-              ...slotProps?.subheader,
-            }}
-          >
+          <StyledSubheader disableGutters disableSticky onClick={handleToggle} config={config}>
             {subheader}
-          </ListSubheader>
+          </StyledSubheader>
 
           <Collapse in={open}>{renderContent}</Collapse>
         </>
       ) : (
         renderContent
       )}
-    </Stack>
+    </List>
   );
 }

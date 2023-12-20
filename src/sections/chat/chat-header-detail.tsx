@@ -1,15 +1,16 @@
+// @mui
 import Stack from '@mui/material/Stack';
 import Badge from '@mui/material/Badge';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import ListItemText from '@mui/material/ListItemText';
 import AvatarGroup, { avatarGroupClasses } from '@mui/material/AvatarGroup';
-
+// utils
 import { fToNow } from 'src/utils/format-time';
-
-import Iconify from 'src/components/iconify';
-
+// types
 import { IChatParticipant } from 'src/types/chat';
+// components
+import Iconify from 'src/components/iconify';
 
 // ----------------------------------------------------------------------
 

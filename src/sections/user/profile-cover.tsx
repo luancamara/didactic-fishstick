@@ -1,12 +1,13 @@
+// @mui
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
 import ListItemText from '@mui/material/ListItemText';
-import { alpha, useTheme } from '@mui/material/styles';
-
-import { bgGradient } from 'src/theme/css';
-
+import { useTheme, alpha } from '@mui/material/styles';
+// types
 import { IUserProfileCover } from 'src/types/user';
+// theme
+import { bgGradient } from 'src/theme/css';
 
 // ----------------------------------------------------------------------
 

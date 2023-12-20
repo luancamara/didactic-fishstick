@@ -1,5 +1,6 @@
 'use client';
 
+// components
 import AuthClassicLayout from 'src/layouts/auth/classic';
 
 // ----------------------------------------------------------------------

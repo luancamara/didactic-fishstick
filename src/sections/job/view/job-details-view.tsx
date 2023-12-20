@@ -1,18 +1,18 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-
+// @mui
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import Container from '@mui/material/Container';
-
+// routes
 import { paths } from 'src/routes/paths';
-
-import { _jobs, JOB_DETAILS_TABS, JOB_PUBLISH_OPTIONS } from 'src/_mock';
-
+// _mock
+import { _jobs, JOB_PUBLISH_OPTIONS, JOB_DETAILS_TABS } from 'src/_mock';
+// components
 import Label from 'src/components/label';
 import { useSettingsContext } from 'src/components/settings';
-
+//
 import JobDetailsToolbar from '../job-details-toolbar';
 import JobDetailsContent from '../job-details-content';
 import JobDetailsCandidates from '../job-details-candidates';

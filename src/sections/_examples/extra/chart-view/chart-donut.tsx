@@ -1,3 +1,4 @@
+// components
 import Chart, { useChart } from 'src/components/chart';
 
 // ----------------------------------------------------------------------
@@ -27,14 +28,5 @@ export default function ChartDonut({ series }: Props) {
     },
   });
 
-  return (
-    <Chart
-      dir="ltr"
-      type="donut"
-      series={series}
-      options={chartOptions}
-      width={400}
-      height="auto"
-    />
-  );
+  return <Chart dir="ltr" type="donut" series={series} options={chartOptions} width={400} />;
 }

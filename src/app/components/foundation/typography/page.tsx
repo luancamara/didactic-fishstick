@@ -1,3 +1,4 @@
+// sections
 import { TypographyView } from 'src/sections/_examples/foundation';
 
 // ----------------------------------------------------------------------

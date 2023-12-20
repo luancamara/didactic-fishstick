@@ -1,5 +1,6 @@
+// utils
 import axios, { endpoints } from 'src/utils/axios';
-
+// sections
 import { ProductShopDetailsView } from 'src/sections/product/view';
 
 // ----------------------------------------------------------------------

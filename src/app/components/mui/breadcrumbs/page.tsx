@@ -1,3 +1,4 @@
+// sections
 import BreadcrumbsView from 'src/sections/_examples/mui/breadcrumbs-view';
 
 // ----------------------------------------------------------------------

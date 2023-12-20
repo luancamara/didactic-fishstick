@@ -1,3 +1,4 @@
+// sections
 import BlankView from 'src/sections/blank/view';
 
 // ----------------------------------------------------------------------

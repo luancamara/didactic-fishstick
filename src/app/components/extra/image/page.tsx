@@ -1,9 +1,10 @@
+// sections
 import ImageView from 'src/sections/_examples/extra/image-view';
 
 // ----------------------------------------------------------------------
 
 export const metadata = {
-  title: 'Components: Image',
+  title: 'Extra: Image',
 };
 
 export default function ImagePage() {

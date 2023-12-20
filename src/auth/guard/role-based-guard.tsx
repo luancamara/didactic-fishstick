@@ -1,14 +1,14 @@
 import { m } from 'framer-motion';
-
+// @mui
+import { Theme, SxProps } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { Theme, SxProps } from '@mui/material/styles';
-
+// hooks
 import { useMockedUser } from 'src/hooks/use-mocked-user';
-
+// assets
 import { ForbiddenIllustration } from 'src/assets/illustrations';
-
-import { varBounce, MotionContainer } from 'src/components/animate';
+// components
+import { MotionContainer, varBounce } from 'src/components/animate';
 
 // ----------------------------------------------------------------------
 

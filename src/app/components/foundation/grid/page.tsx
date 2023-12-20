@@ -1,3 +1,4 @@
+// sections
 import { GridView } from 'src/sections/_examples/foundation';
 
 // ----------------------------------------------------------------------

@@ -1,3 +1,4 @@
+// sections
 import TimelineView from 'src/sections/_examples/mui/timeline-view';
 
 // ----------------------------------------------------------------------

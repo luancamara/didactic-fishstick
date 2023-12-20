@@ -1,8 +1,9 @@
+// @mui
+import { useTheme, alpha } from '@mui/material/styles';
 import Stack from '@mui/material/Stack';
-import { CardProps } from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
-import { alpha, useTheme } from '@mui/material/styles';
-
+import { CardProps } from '@mui/material/Card';
+// theme
 import { bgGradient } from 'src/theme/css';
 
 // ----------------------------------------------------------------------

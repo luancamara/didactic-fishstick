@@ -1,3 +1,4 @@
+// sections
 import { ChatView } from 'src/sections/chat/view';
 
 // ----------------------------------------------------------------------

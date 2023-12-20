@@ -1,3 +1,4 @@
+// sections
 import PermissionDeniedView from 'src/sections/permission/view';
 
 // ----------------------------------------------------------------------

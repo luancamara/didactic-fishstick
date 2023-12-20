@@ -1,3 +1,4 @@
+// sections
 import { ModernVerifyView } from 'src/sections/auth-demo/modern';
 
 // ----------------------------------------------------------------------

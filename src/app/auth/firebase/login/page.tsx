@@ -1,3 +1,4 @@
+// sections
 import { FirebaseLoginView } from 'src/sections/auth/firebase';
 
 // ----------------------------------------------------------------------

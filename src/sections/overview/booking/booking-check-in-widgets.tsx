@@ -1,18 +1,20 @@
 import { ApexOptions } from 'apexcharts';
-
+// @mui
+import { useTheme } from '@mui/material/styles';
 import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider';
-import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Card, { CardProps } from '@mui/material/Card';
-
-import { useResponsive } from 'src/hooks/use-responsive';
-
+// hooks
 import { fNumber } from 'src/utils/format-number';
-
+import { useResponsive } from 'src/hooks/use-responsive';
+// utils
+// components
 import Chart, { useChart } from 'src/components/chart';
 
 // ----------------------------------------------------------------------
+
+const CHART_SIZE = { width: 106, height: 106 };
 
 interface Props extends CardProps {
   chart: {
@@ -45,8 +47,8 @@ export default function BookingCheckInWidgets({ chart, ...other }: Props) {
       type: 'gradient',
       gradient: {
         colorStops: [
-          { offset: 0, color: colors[0][0], opacity: 1 },
-          { offset: 100, color: colors[0][1], opacity: 1 },
+          { offset: 0, color: colors[0][0] },
+          { offset: 100, color: colors[0][1] },
         ],
       },
     },
@@ -86,8 +88,8 @@ export default function BookingCheckInWidgets({ chart, ...other }: Props) {
       type: 'gradient',
       gradient: {
         colorStops: [
-          { offset: 0, color: colors[1][0], opacity: 1 },
-          { offset: 100, color: colors[1][1], opacity: 1 },
+          { offset: 0, color: colors[1][0] },
+          { offset: 100, color: colors[1][1] },
         ],
       },
     },
@@ -108,23 +110,17 @@ export default function BookingCheckInWidgets({ chart, ...other }: Props) {
         {series.map((item, index) => (
           <Stack
             key={item.label}
-            spacing={3}
             direction="row"
             alignItems="center"
-            justifyContent={{ sm: 'center' }}
-            sx={{
-              py: 5,
-              width: 1,
-              px: { xs: 3, sm: 0 },
-            }}
+            justifyContent="center"
+            spacing={3}
+            sx={{ width: 1, py: 5 }}
           >
             <Chart
-              dir="ltr"
               type="radialBar"
               series={[item.percent]}
               options={index === 1 ? chartOptionsCheckout : chartOptionsCheckIn}
-              width={106}
-              height={106}
+              {...CHART_SIZE}
             />
 
             <div>

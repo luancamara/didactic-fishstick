@@ -1,23 +1,23 @@
 'use client';
 
 import { useEffect, useCallback } from 'react';
-
+// @mui
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-
-import { paths } from 'src/routes/paths';
-import { useRouter, useSearchParams } from 'src/routes/hooks';
-
+// hooks
 import { useBoolean } from 'src/hooks/use-boolean';
 import { useResponsive } from 'src/hooks/use-responsive';
-
-import { useGetMail, useGetMails, useGetLabels } from 'src/api/mail';
-
+// routes
+import { paths } from 'src/routes/paths';
+import { useRouter, useSearchParams } from 'src/routes/hooks';
+// api
+import { useGetLabels, useGetMails, useGetMail } from 'src/api/mail';
+// components
 import EmptyContent from 'src/components/empty-content';
-import { useSettingsContext } from 'src/components/settings';
 import { LoadingScreen } from 'src/components/loading-screen';
-
+import { useSettingsContext } from 'src/components/settings';
+//
 import MailNav from '../mail-nav';
 import MailList from '../mail-list';
 import MailHeader from '../mail-header';
@@ -37,7 +37,7 @@ export default function MailView() {
 
   const selectedMailId = searchParams.get('id') || '';
 
-  const mdUp = useResponsive('up', 'md');
+  const upMd = useResponsive('up', 'md');
 
   const settings = useSettingsContext();
 
@@ -64,7 +64,7 @@ export default function MailView() {
 
   const handleClickLabel = useCallback(
     (labelId: string) => {
-      if (!mdUp) {
+      if (!upMd) {
         openNav.onFalse();
       }
 
@@ -76,12 +76,12 @@ export default function MailView() {
         router.push(href);
       }
     },
-    [openNav, router, mdUp]
+    [openNav, router, upMd]
   );
 
   const handleClickMail = useCallback(
     (mailId: string) => {
-      if (!mdUp) {
+      if (!upMd) {
         openMail.onFalse();
       }
 
@@ -92,7 +92,7 @@ export default function MailView() {
 
       router.push(href);
     },
-    [openMail, router, selectedLabelId, mdUp]
+    [openMail, router, selectedLabelId, upMd]
   );
 
   useEffect(() => {
@@ -173,7 +173,7 @@ export default function MailView() {
           sx={{
             borderRadius: 1.5,
             bgcolor: 'background.default',
-            ...(!mdUp && {
+            ...(!upMd && {
               display: 'none',
             }),
           }}
@@ -204,12 +204,12 @@ export default function MailView() {
           sx={{
             p: 1,
             borderRadius: 2,
-            overflow: 'hidden',
             position: 'relative',
+            overflow: 'hidden',
             bgcolor: 'background.neutral',
           }}
         >
-          {!mdUp && (
+          {!upMd && (
             <MailHeader
               onOpenNav={openNav.onTrue}
               onOpenMail={mailsEmpty ? null : openMail.onTrue}
@@ -219,9 +219,11 @@ export default function MailView() {
           <Stack
             spacing={1}
             direction="row"
+            flexGrow={1}
             sx={{
-              minHeight: { md: 720 },
-              height: { xs: 800, md: '72vh' },
+              height: {
+                xs: '72vh',
+              },
             }}
           >
             {renderMailNav}

@@ -1,3 +1,4 @@
+// sections
 import { AmplifyForgotPasswordView } from 'src/sections/auth/amplify';
 
 // ----------------------------------------------------------------------

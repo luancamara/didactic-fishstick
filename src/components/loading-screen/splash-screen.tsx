@@ -1,9 +1,9 @@
 import { m } from 'framer-motion';
 import { useState, useEffect } from 'react';
-
+// @mui
 import { alpha } from '@mui/material/styles';
 import Box, { BoxProps } from '@mui/material/Box';
-
+//
 import Logo from '../logo';
 
 // ----------------------------------------------------------------------
@@ -28,7 +28,7 @@ export default function SplashScreen({ sx, ...other }: BoxProps) {
         height: 1,
         zIndex: 9998,
         display: 'flex',
-        position: 'absolute',
+        position: 'fixed',
         alignItems: 'center',
         justifyContent: 'center',
         bgcolor: 'background.default',

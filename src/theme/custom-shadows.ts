@@ -1,10 +1,11 @@
+// @mui
 import { alpha } from '@mui/material/styles';
-
-import { grey, info, error, common, primary, success, warning, secondary } from './palette';
+//
+import { palette as themePalette } from './palette';
 
 // ----------------------------------------------------------------------
 
-interface CustomShadows {
+interface CustomShadowOptions {
   z1: string;
   z4: string;
   z8: string;
@@ -27,20 +28,23 @@ interface CustomShadows {
 
 declare module '@mui/material/styles' {
   interface Theme {
-    customShadows: CustomShadows;
+    customShadows: CustomShadowOptions;
   }
   interface ThemeOptions {
-    customShadows?: CustomShadows;
+    customShadows?: CustomShadowOptions;
   }
 }
 
 // ----------------------------------------------------------------------
 
-export function customShadows(mode: 'light' | 'dark') {
-  const color = mode === 'light' ? grey[500] : common.black;
+const palette = themePalette('light');
 
+const LIGHT_MODE = palette.grey[500];
+
+const DARK_MODE = palette.common.black;
+
+function createShadow(color: string) {
   const transparent = alpha(color, 0.16);
-
   return {
     z1: `0 1px 2px 0 ${transparent}`,
     z4: `0 4px 8px 0 ${transparent}`,
@@ -52,13 +56,17 @@ export function customShadows(mode: 'light' | 'dark') {
     //
     card: `0 0 2px 0 ${alpha(color, 0.2)}, 0 12px 24px -4px ${alpha(color, 0.12)}`,
     dropdown: `0 0 2px 0 ${alpha(color, 0.24)}, -20px 20px 40px -4px ${alpha(color, 0.24)}`,
-    dialog: `-40px 40px 80px -8px ${alpha(common.black, 0.24)}`,
+    dialog: `-40px 40px 80px -8px ${alpha(palette.common.black, 0.24)}`,
     //
-    primary: `0 8px 16px 0 ${alpha(primary.main, 0.24)}`,
-    info: `0 8px 16px 0 ${alpha(info.main, 0.24)}`,
-    secondary: `0 8px 16px 0 ${alpha(secondary.main, 0.24)}`,
-    success: `0 8px 16px 0 ${alpha(success.main, 0.24)}`,
-    warning: `0 8px 16px 0 ${alpha(warning.main, 0.24)}`,
-    error: `0 8px 16px 0 ${alpha(error.main, 0.24)}`,
+    primary: `0 8px 16px 0 ${alpha(palette.primary.main, 0.24)}`,
+    info: `0 8px 16px 0 ${alpha(palette.info.main, 0.24)}`,
+    secondary: `0 8px 16px 0 ${alpha(palette.secondary.main, 0.24)}`,
+    success: `0 8px 16px 0 ${alpha(palette.success.main, 0.24)}`,
+    warning: `0 8px 16px 0 ${alpha(palette.warning.main, 0.24)}`,
+    error: `0 8px 16px 0 ${alpha(palette.error.main, 0.24)}`,
   };
+}
+
+export function customShadows(mode: 'light' | 'dark') {
+  return mode === 'light' ? createShadow(LIGHT_MODE) : createShadow(DARK_MODE);
 }

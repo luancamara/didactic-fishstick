@@ -1,3 +1,5 @@
+// @mui
+import { darken, lighten, alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
@@ -11,12 +13,11 @@ import IconButton from '@mui/material/IconButton';
 import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
 import ListItemText from '@mui/material/ListItemText';
-import { alpha, darken, lighten } from '@mui/material/styles';
-
-import { useBoolean } from 'src/hooks/use-boolean';
-
+// utils
 import { fDateTime } from 'src/utils/format-time';
-
+// hooks
+import { useBoolean } from 'src/hooks/use-boolean';
+// components
 import Label from 'src/components/label';
 import Editor from 'src/components/editor';
 import Iconify from 'src/components/iconify';
@@ -25,7 +26,7 @@ import Scrollbar from 'src/components/scrollbar';
 import TextMaxLine from 'src/components/text-max-line';
 import EmptyContent from 'src/components/empty-content';
 import FileThumbnail from 'src/components/file-thumbnail';
-
+// types
 import { IMail, IMailLabel } from 'src/types/mail';
 
 // ----------------------------------------------------------------------
@@ -152,11 +153,7 @@ export default function MailDetails({ mail, renderLabel }: Props) {
         p: (theme) => theme.spacing(2, 2, 1, 2),
       }}
     >
-      <Avatar
-        alt={mail.from.name}
-        src={mail.from.avatarUrl ? `${mail.from.avatarUrl}` : ''}
-        sx={{ mr: 2 }}
-      >
+      <Avatar alt={mail.from.name} src={`${mail.from.avatarUrl}`} sx={{ mr: 2 }}>
         {mail.from.name.charAt(0).toUpperCase()}
       </Avatar>
 
@@ -253,13 +250,7 @@ export default function MailDetails({ mail, renderLabel }: Props) {
   );
 
   const renderContent = (
-    <Box
-      sx={{
-        py: 3,
-        flexGrow: 1,
-        overflow: { xs: 'auto', md: 'hidden' },
-      }}
-    >
+    <Box sx={{ py: 3, overflow: 'hidden', flexGrow: 1 }}>
       <Scrollbar>
         <Markdown
           children={mail.message}

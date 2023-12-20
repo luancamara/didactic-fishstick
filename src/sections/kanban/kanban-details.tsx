@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
-
+// @mui
+import { styled, alpha } from '@mui/material/styles';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import Drawer from '@mui/material/Drawer';
@@ -9,16 +10,15 @@ import Divider from '@mui/material/Divider';
 import Tooltip from '@mui/material/Tooltip';
 import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
-import { alpha, styled } from '@mui/material/styles';
-
+// types
+import { IKanbanTask } from 'src/types/kanban';
+// hooks
 import { useBoolean } from 'src/hooks/use-boolean';
-
+// components
 import Iconify from 'src/components/iconify';
 import Scrollbar from 'src/components/scrollbar';
 import CustomDateRangePicker, { useDateRangePicker } from 'src/components/custom-date-range-picker';
-
-import { IKanbanTask } from 'src/types/kanban';
-
+//
 import KanbanInputName from './kanban-input-name';
 import KanbanDetailsToolbar from './kanban-details-toolbar';
 import KanbanContactsDialog from './kanban-contacts-dialog';

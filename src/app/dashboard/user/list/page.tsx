@@ -1,3 +1,4 @@
+// sections
 import { UserListView } from 'src/sections/user/view';
 
 // ----------------------------------------------------------------------

@@ -1,27 +1,27 @@
 import { m } from 'framer-motion';
-
+// @mui
+import { useTheme, alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
-import { alpha, useTheme } from '@mui/material/styles';
-
-import { paths } from 'src/routes/paths';
-
+// hooks
 import { useResponsive } from 'src/hooks/use-responsive';
-
-import { bgGradient, textGradient } from 'src/theme/css';
-
+// theme
+import { textGradient, bgGradient } from 'src/theme/css';
+// routes
+import { paths } from 'src/routes/paths';
+// components
 import Iconify from 'src/components/iconify';
-import { varFade, MotionViewport } from 'src/components/animate';
+import { MotionViewport, varFade } from 'src/components/animate';
 
 // ----------------------------------------------------------------------
 
 export default function HomeForDesigner() {
   const theme = useTheme();
 
-  const mdUp = useResponsive('up', 'md');
+  const upMd = useResponsive('up', 'md');
 
   const renderDescription = (
     <Box sx={{ textAlign: { xs: 'center', md: 'unset' }, mt: { xs: 10, md: 20 } }}>
@@ -92,7 +92,7 @@ export default function HomeForDesigner() {
           endColor: alpha(theme.palette.grey[900], 0),
           imgUrl: '/assets/images/home/for_designer.webp',
         }),
-        ...(mdUp && {
+        ...(upMd && {
           ...bgGradient({
             color: alpha(theme.palette.background.default, 0.8),
             imgUrl: '/assets/background/overlay_4.jpg',
@@ -106,7 +106,7 @@ export default function HomeForDesigner() {
             {renderDescription}
           </Grid>
 
-          {mdUp && <Grid md={6}>{renderImg}</Grid>}
+          {upMd && <Grid md={6}>{renderImg}</Grid>}
         </Grid>
       </Container>
     </Box>

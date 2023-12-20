@@ -1,17 +1,18 @@
 'use client';
 
 import { useCallback } from 'react';
-import { Droppable, DropResult, DragDropContext } from '@hello-pangea/dnd';
-
+import { DragDropContext, Droppable, DropResult } from '@hello-pangea/dnd';
+// @mui
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-
-import { moveTask, moveColumn, useGetBoard } from 'src/api/kanban';
-
-import Scrollbar from 'src/components/scrollbar';
+// theme
+import { hideScroll } from 'src/theme/css';
+// api
+import { useGetBoard, moveColumn, moveTask } from 'src/api/kanban';
+// components
 import EmptyContent from 'src/components/empty-content';
-
+//
 import KanbanColumn from '../kanban-column';
 import KanbanColumnAdd from '../kanban-column-add';
 import { KanbanColumnSkeleton } from '../kanban-skeleton';
@@ -141,40 +142,32 @@ export default function KanbanView() {
         <DragDropContext onDragEnd={onDragEnd}>
           <Droppable droppableId="board" type="COLUMN" direction="horizontal">
             {(provided) => (
-              <Scrollbar
+              <Stack
+                ref={provided.innerRef}
+                {...provided.droppableProps}
+                spacing={3}
+                direction="row"
+                alignItems="flex-start"
                 sx={{
+                  p: 0.25,
                   height: 1,
-                  minHeight: {
-                    xs: '80vh',
-                    md: 'unset',
-                  },
+                  overflowY: 'hidden',
+                  ...hideScroll.x,
                 }}
               >
-                <Stack
-                  ref={provided.innerRef}
-                  {...provided.droppableProps}
-                  spacing={3}
-                  direction="row"
-                  alignItems="flex-start"
-                  sx={{
-                    p: 0.25,
-                    height: 1,
-                  }}
-                >
-                  {board?.ordered.map((columnId, index) => (
-                    <KanbanColumn
-                      index={index}
-                      key={columnId}
-                      column={board?.columns[columnId]}
-                      tasks={board?.tasks}
-                    />
-                  ))}
+                {board?.ordered.map((columnId, index) => (
+                  <KanbanColumn
+                    index={index}
+                    key={columnId}
+                    column={board?.columns[columnId]}
+                    tasks={board?.tasks}
+                  />
+                ))}
 
-                  {provided.placeholder}
+                {provided.placeholder}
 
-                  <KanbanColumnAdd />
-                </Stack>
-              </Scrollbar>
+                <KanbanColumnAdd />
+              </Stack>
             )}
           </Droppable>
         </DragDropContext>

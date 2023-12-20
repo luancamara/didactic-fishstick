@@ -1,8 +1,8 @@
 import { useState, useCallback } from 'react';
-
+// @mui
 import Stack from '@mui/material/Stack';
-
-import { UploadBox, MultiFilePreview } from 'src/components/upload';
+// components
+import { MultiFilePreview, UploadBox } from 'src/components/upload';
 
 // ----------------------------------------------------------------------
 

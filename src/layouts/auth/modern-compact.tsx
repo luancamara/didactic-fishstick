@@ -1,7 +1,8 @@
+// @mui
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-
-import Header from '../common/header-simple';
+//
+import { HeaderSimple as Header } from '../_common';
 
 // ----------------------------------------------------------------------
 

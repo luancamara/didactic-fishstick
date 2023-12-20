@@ -1,32 +1,33 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
+// @mui
 import { useTheme } from '@mui/material/styles';
+import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
-import Grid from '@mui/material/Unstable_Grid2';
+import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-
+import Grid from '@mui/material/Unstable_Grid2';
+// routes
 import { paths } from 'src/routes/paths';
-
+// hooks
 import { useBoolean } from 'src/hooks/use-boolean';
 import { useResponsive } from 'src/hooks/use-responsive';
-
-import { _files, _folders } from 'src/_mock';
-
+// _mock
+import { _folders, _files } from 'src/_mock';
+// components
 import Iconify from 'src/components/iconify';
 import Scrollbar from 'src/components/scrollbar';
 import { UploadBox } from 'src/components/upload';
 import { useSettingsContext } from 'src/components/settings';
-
+//
 import FileWidget from '../../../file-manager/file-widget';
 import FileUpgrade from '../../../file-manager/file-upgrade';
 import FileRecentItem from '../../../file-manager/file-recent-item';
 import FileDataActivity from '../../../file-manager/file-data-activity';
-import FileManagerPanel from '../../../file-manager/file-manager-panel';
 import FileStorageOverview from '../../../file-manager/file-storage-overview';
+//
+import FileManagerPanel from '../../../file-manager/file-manager-panel';
 import FileManagerFolderItem from '../../../file-manager/file-manager-folder-item';
 import FileManagerNewFolderDialog from '../../../file-manager/file-manager-new-folder-dialog';
 
@@ -163,10 +164,10 @@ export default function OverviewFileView() {
                   {
                     type: 'Week',
                     data: [
-                      { name: 'Images', data: [20, 34, 48, 65, 37, 48, 9] },
-                      { name: 'Media', data: [10, 34, 13, 26, 27, 28, 18] },
-                      { name: 'Documents', data: [10, 14, 13, 16, 17, 18, 28] },
-                      { name: 'Other', data: [5, 12, 6, 7, 8, 9, 48] },
+                      { name: 'Images', data: [20, 34, 48, 65, 37, 48] },
+                      { name: 'Media', data: [10, 34, 13, 26, 27, 28] },
+                      { name: 'Documents', data: [10, 14, 13, 16, 17, 18] },
+                      { name: 'Other', data: [5, 12, 6, 7, 8, 9] },
                     ],
                   },
                   {

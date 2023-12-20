@@ -1,3 +1,4 @@
+// sections
 import { ProductListView } from 'src/sections/product/view';
 
 // ----------------------------------------------------------------------

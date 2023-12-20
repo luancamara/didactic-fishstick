@@ -1,6 +1,7 @@
 import { m, useScroll } from 'framer-motion';
-import { useRef, useState, useEffect, useCallback } from 'react';
-
+import { useEffect, useRef, useState, useCallback } from 'react';
+// @mui
+import { styled, alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
@@ -9,18 +10,19 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
-import { alpha, styled, useTheme } from '@mui/material/styles';
-
+// routes
 import { paths } from 'src/routes/paths';
-import { RouterLink } from 'src/routes/components';
-
+// hooks
 import { useResponsive } from 'src/hooks/use-responsive';
-
+// theme
+import { secondaryFont } from 'src/theme/typography';
+import { textGradient, bgGradient, bgBlur } from 'src/theme/css';
+// layouts
 import { HEADER } from 'src/layouts/config-layout';
-import { bgBlur, bgGradient, textGradient } from 'src/theme/css';
-
+// components
 import Iconify from 'src/components/iconify';
-import { varFade, MotionContainer } from 'src/components/animate';
+import { RouterLink } from 'src/routes/components';
+import { MotionContainer, varFade } from 'src/components/animate';
 
 // ----------------------------------------------------------------------
 
@@ -55,13 +57,12 @@ const StyledTextGradient = styled(m.h1)(({ theme }) => ({
   padding: 0,
   marginTop: 8,
   lineHeight: 1,
-  fontWeight: 900,
   marginBottom: 24,
   letterSpacing: 8,
   textAlign: 'center',
   backgroundSize: '400%',
   fontSize: `${64 / 16}rem`,
-  fontFamily: theme.typography.fontSecondaryFamily,
+  fontFamily: secondaryFont.style.fontFamily,
   [theme.breakpoints.up('md')]: {
     fontSize: `${96 / 16}rem`,
   },
@@ -137,7 +138,7 @@ export default function HomeHero() {
 
   const [percent, setPercent] = useState(0);
 
-  const lightMode = theme.palette.mode === 'light';
+  const isLight = theme.palette.mode === 'light';
 
   const getScroll = useCallback(() => {
     let heroHeight = 0;
@@ -281,18 +282,17 @@ export default function HomeHero() {
 
       <Stack spacing={3} sx={{ textAlign: 'center' }}>
         <m.div variants={varFade().in}>
-          <Typography variant="overline" sx={{ opacity: 0.48 }}>
+          <Typography variant="overline" sx={{ opacity: 0.4 }}>
             Available For
           </Typography>
         </m.div>
 
         <Stack spacing={2} direction="row" justifyContent="center">
-          {['js', 'ts', 'figma', 'nextjs', 'vite'].map((icon) => (
-            <m.div key={icon} variants={varFade().in}>
+          {['figma', 'js', 'ts', 'nextjs', 'vite'].map((platform) => (
+            <m.div key={platform} variants={varFade().in}>
               <Box
                 component="img"
-                alt={icon}
-                src={`/assets/icons/platforms/ic_${icon}.svg`}
+                src={`/assets/icons/platforms/ic_${platform}.svg`}
                 sx={{ width: 24, height: 24 }}
               />
             </m.div>
@@ -328,9 +328,9 @@ export default function HomeHero() {
           component={m.img}
           animate={{ y: ['0%', '100%'] }}
           transition={transition}
-          alt={lightMode ? 'light_1' : 'dark_1'}
+          alt={isLight ? 'light_1' : 'dark_1'}
           src={
-            lightMode
+            isLight
               ? `/assets/images/home/hero/light_1.webp`
               : `/assets/images/home/hero/dark_1.webp`
           }
@@ -340,9 +340,9 @@ export default function HomeHero() {
           component={m.img}
           animate={{ y: ['-100%', '0%'] }}
           transition={transition}
-          alt={lightMode ? 'light_1' : 'dark_1'}
+          alt={isLight ? 'light_1' : 'dark_1'}
           src={
-            lightMode
+            isLight
               ? `/assets/images/home/hero/light_1.webp`
               : `/assets/images/home/hero/dark_1.webp`
           }
@@ -359,9 +359,9 @@ export default function HomeHero() {
           component={m.img}
           animate={{ y: ['100%', '0%'] }}
           transition={transition}
-          alt={lightMode ? 'light_2' : 'dark_2'}
+          alt={isLight ? 'light_2' : 'dark_2'}
           src={
-            lightMode
+            isLight
               ? `/assets/images/home/hero/light_2.webp`
               : `/assets/images/home/hero/dark_2.webp`
           }
@@ -371,9 +371,9 @@ export default function HomeHero() {
           component={m.img}
           animate={{ y: ['0%', '-100%'] }}
           transition={transition}
-          alt={lightMode ? 'light_2' : 'dark_2'}
+          alt={isLight ? 'light_2' : 'dark_2'}
           src={
-            lightMode
+            isLight
               ? `/assets/images/home/hero/light_2.webp`
               : `/assets/images/home/hero/dark_2.webp`
           }

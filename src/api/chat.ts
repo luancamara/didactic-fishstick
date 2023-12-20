@@ -1,14 +1,14 @@
 import { useMemo } from 'react';
 import keyBy from 'lodash/keyBy';
 import useSWR, { mutate } from 'swr';
-
-import axios, { fetcher, endpoints } from 'src/utils/axios';
-
+// utils
+import axios, { endpoints, fetcher } from 'src/utils/axios';
+// types
 import {
   IChatMessage,
   IChatParticipant,
-  IChatConversation,
   IChatConversations,
+  IChatConversation,
 } from 'src/types/chat';
 
 // ----------------------------------------------------------------------
@@ -69,7 +69,7 @@ export function useGetConversations() {
 export function useGetConversation(conversationId: string) {
   const URL = conversationId
     ? [endpoints.chat, { params: { conversationId, endpoint: 'conversation' } }]
-    : '';
+    : null;
 
   const { data, isLoading, error, isValidating } = useSWR(URL, fetcher, options);
 

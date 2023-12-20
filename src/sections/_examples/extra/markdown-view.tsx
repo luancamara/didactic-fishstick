@@ -1,5 +1,6 @@
 'use client';
 
+// @mui
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
@@ -7,9 +8,9 @@ import Divider from '@mui/material/Divider';
 import Container from '@mui/material/Container';
 import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
-
+// routes
 import { paths } from 'src/routes/paths';
-
+// components
 import Markdown from 'src/components/markdown';
 import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
 

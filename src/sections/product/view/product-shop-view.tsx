@@ -2,18 +2,17 @@
 
 import orderBy from 'lodash/orderBy';
 import isEqual from 'lodash/isEqual';
-import { useState, useCallback } from 'react';
-
+import { useCallback, useState } from 'react';
+// @mui
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-
-import { paths } from 'src/routes/paths';
-
+// hooks
 import { useBoolean } from 'src/hooks/use-boolean';
 import { useDebounce } from 'src/hooks/use-debounce';
-
-import { useGetProducts, useSearchProducts } from 'src/api/product';
+// routes
+import { paths } from 'src/routes/paths';
+// _mock
 import {
   PRODUCT_SORT_OPTIONS,
   PRODUCT_COLOR_OPTIONS,
@@ -21,18 +20,20 @@ import {
   PRODUCT_RATING_OPTIONS,
   PRODUCT_CATEGORY_OPTIONS,
 } from 'src/_mock';
-
+// api
+import { useGetProducts, useSearchProducts } from 'src/api/product';
+// components
 import EmptyContent from 'src/components/empty-content';
 import { useSettingsContext } from 'src/components/settings';
-
+// types
 import { IProductItem, IProductFilters, IProductFilterValue } from 'src/types/product';
-
+//
+import { useCheckoutContext } from '../../checkout/context';
+import CartIcon from '../common/cart-icon';
 import ProductList from '../product-list';
 import ProductSort from '../product-sort';
-import CartIcon from '../common/cart-icon';
 import ProductSearch from '../product-search';
 import ProductFilters from '../product-filters';
-import { useCheckoutContext } from '../../checkout/context';
 import ProductFiltersResult from '../product-filters-result';
 
 // ----------------------------------------------------------------------

@@ -1,14 +1,15 @@
+// @mui
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 import CardHeader from '@mui/material/CardHeader';
-
-import { useBoolean } from 'src/hooks/use-boolean';
-
-import Iconify from 'src/components/iconify';
-
+// types
 import { IPaymentCard } from 'src/types/payment';
-
+// hooks
+import { useBoolean } from 'src/hooks/use-boolean';
+// components
+import Iconify from 'src/components/iconify';
+//
 import PaymentCardItem from '../payment/payment-card-item';
 import PaymentNewCardDialog from '../payment/payment-new-card-dialog';
 

@@ -1,17 +1,17 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-
+// @mui
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import ListItemText from '@mui/material/ListItemText';
-
-import Iconify from 'src/components/iconify';
-
+// types
 import { IUserProfileFollower } from 'src/types/user';
+// components
+import Iconify from 'src/components/iconify';
 
 // ----------------------------------------------------------------------
 

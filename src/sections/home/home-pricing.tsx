@@ -1,22 +1,22 @@
-import { m } from 'framer-motion';
 import { useState, useCallback } from 'react';
-
+import { m } from 'framer-motion';
+// @mui
+import { alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
-import { alpha } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Stack, { StackProps } from '@mui/material/Stack';
-
-import { paths } from 'src/routes/paths';
-
+// hooks
 import { useResponsive } from 'src/hooks/use-responsive';
-
+// routes
+import { paths } from 'src/routes/paths';
+// _mock
 import { _homePlans } from 'src/_mock';
-
+// components
 import Iconify from 'src/components/iconify';
 import { varFade, MotionViewport } from 'src/components/animate';
 
@@ -167,9 +167,9 @@ interface PlanCardProps extends StackProps {
 function PlanCard({ plan, sx, ...other }: PlanCardProps) {
   const { license, commons, options, icons } = plan;
 
-  const standardLicense = license === 'Standard';
+  const standard = license === 'Standard';
 
-  const plusLicense = license === 'Standard Plus';
+  const plus = license === 'Standard Plus';
 
   return (
     <Stack
@@ -177,7 +177,7 @@ function PlanCard({ plan, sx, ...other }: PlanCardProps) {
       sx={{
         p: 5,
         pt: 10,
-        ...(plusLicense && {
+        ...(plus && {
           borderLeft: (theme) => `dashed 1px ${theme.palette.divider}`,
           borderRight: (theme) => `dashed 1px ${theme.palette.divider}`,
           ...sx,
@@ -201,19 +201,19 @@ function PlanCard({ plan, sx, ...other }: PlanCardProps) {
               opacity: 0.48,
               bgcolor: 'error.main',
               position: 'absolute',
-              ...(standardLicense && { bgcolor: 'primary.main' }),
-              ...(plusLicense && { bgcolor: 'warning.main' }),
+              ...(standard && { bgcolor: 'primary.main' }),
+              ...(plus && { bgcolor: 'warning.main' }),
             }}
           />
         </Box>
       </Stack>
 
-      {standardLicense ? (
-        <Box component="img" alt={icons[1]} src={icons[1]} sx={{ width: 20, height: 20 }} />
+      {standard ? (
+        <Box component="img" src={icons[1]} sx={{ width: 20, height: 20 }} />
       ) : (
         <Stack direction="row" spacing={2}>
           {icons.map((icon) => (
-            <Box component="img" key={icon} alt={icon} src={icon} sx={{ width: 20, height: 20 }} />
+            <Box component="img" key={icon} src={icon} sx={{ width: 20, height: 20 }} />
           ))}
         </Stack>
       )}
@@ -230,10 +230,10 @@ function PlanCard({ plan, sx, ...other }: PlanCardProps) {
 
         {options.map((option, optionIndex) => {
           const disabled =
-            (standardLicense && optionIndex === 1) ||
-            (standardLicense && optionIndex === 2) ||
-            (standardLicense && optionIndex === 3) ||
-            (plusLicense && optionIndex === 3);
+            (standard && optionIndex === 1) ||
+            (standard && optionIndex === 2) ||
+            (standard && optionIndex === 3) ||
+            (plus && optionIndex === 3);
 
           return (
             <Stack

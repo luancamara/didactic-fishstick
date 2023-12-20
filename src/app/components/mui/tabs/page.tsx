@@ -1,3 +1,4 @@
+// sections
 import TabsView from 'src/sections/_examples/mui/tabs-view';
 
 // ----------------------------------------------------------------------

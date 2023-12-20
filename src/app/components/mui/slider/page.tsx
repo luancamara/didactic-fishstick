@@ -1,3 +1,4 @@
+// sections
 import SliderView from 'src/sections/_examples/mui/slider-view';
 
 // ----------------------------------------------------------------------

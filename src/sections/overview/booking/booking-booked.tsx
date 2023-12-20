@@ -1,10 +1,11 @@
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
+// @mui
 import { alpha } from '@mui/material/styles';
+import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
 import CardHeader from '@mui/material/CardHeader';
 import Card, { CardProps } from '@mui/material/Card';
 import LinearProgress from '@mui/material/LinearProgress';
-
+// utils
 import { fShortenNumber } from 'src/utils/format-number';
 
 // ----------------------------------------------------------------------
@@ -34,7 +35,7 @@ export default function BookingBooked({ title, subheader, data, ...other }: Prop
               sx={{ mb: 1 }}
             >
               <Box sx={{ typography: 'overline' }}>{progress.status}</Box>
-              <Box sx={{ typography: 'subtitle1' }}>{fShortenNumber(progress.quantity)}</Box>
+              <Box sx={{ typography: 'subtitle1' }}>{fShortenNumber(progress.value)}</Box>
             </Stack>
 
             <LinearProgress

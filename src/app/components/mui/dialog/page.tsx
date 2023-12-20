@@ -1,3 +1,4 @@
+// sections
 import DialogView from 'src/sections/_examples/mui/dialog-view';
 
 // ----------------------------------------------------------------------

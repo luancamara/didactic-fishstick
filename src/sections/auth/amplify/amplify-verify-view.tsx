@@ -4,21 +4,22 @@ import * as Yup from 'yup';
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-
+// @mui
+import LoadingButton from '@mui/lab/LoadingButton';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import LoadingButton from '@mui/lab/LoadingButton';
-
+// auth
+import { useAuthContext } from 'src/auth/hooks';
+// routes
 import { paths } from 'src/routes/paths';
 import { RouterLink } from 'src/routes/components';
 import { useRouter, useSearchParams } from 'src/routes/hooks';
-
+// hooks
 import { useCountdownSeconds } from 'src/hooks/use-countdown';
-
-import { useAuthContext } from 'src/auth/hooks';
+// assets
 import { EmailInboxIcon } from 'src/assets/icons';
-
+// components
 import Iconify from 'src/components/iconify';
 import FormProvider, { RHFCode, RHFTextField } from 'src/components/hook-form';
 

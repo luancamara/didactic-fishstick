@@ -1,11 +1,11 @@
 import { ApexOptions } from 'apexcharts';
-
+// @mui
 import Box from '@mui/material/Box';
 import CardHeader from '@mui/material/CardHeader';
 import Card, { CardProps } from '@mui/material/Card';
-
+// utils
 import { fNumber } from 'src/utils/format-number';
-
+// components
 import Chart, { useChart } from 'src/components/chart';
 
 // ----------------------------------------------------------------------
@@ -58,11 +58,10 @@ export default function AnalyticsConversionRates({ title, subheader, chart, ...o
 
       <Box sx={{ mx: 3 }}>
         <Chart
-          dir="ltr"
           type="bar"
+          dir="ltr"
           series={[{ data: chartSeries }]}
           options={chartOptions}
-          width="100%"
           height={364}
         />
       </Box>

@@ -1,8 +1,9 @@
 import * as Yup from 'yup';
-import { useForm } from 'react-hook-form';
+import { useCallback, useMemo, useEffect } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useMemo, useEffect, useCallback } from 'react';
-
+import { useForm } from 'react-hook-form';
+// @mui
+import LoadingButton from '@mui/lab/LoadingButton';
 import Chip from '@mui/material/Chip';
 import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
@@ -11,17 +12,18 @@ import Switch from '@mui/material/Switch';
 import Grid from '@mui/material/Unstable_Grid2';
 import CardHeader from '@mui/material/CardHeader';
 import Typography from '@mui/material/Typography';
-import LoadingButton from '@mui/lab/LoadingButton';
 import FormControlLabel from '@mui/material/FormControlLabel';
-
-import { paths } from 'src/routes/paths';
-import { useRouter } from 'src/routes/hooks';
-
+// hooks
 import { useBoolean } from 'src/hooks/use-boolean';
 import { useResponsive } from 'src/hooks/use-responsive';
-
+// routes
+import { paths } from 'src/routes/paths';
+import { useRouter } from 'src/routes/hooks';
+// _mock
 import { _tags } from 'src/_mock';
-
+// types
+import { IPostItem } from 'src/types/blog';
+// components
 import { CustomFile } from 'src/components/upload';
 import { useSnackbar } from 'src/components/snackbar';
 import FormProvider, {
@@ -30,9 +32,7 @@ import FormProvider, {
   RHFTextField,
   RHFAutocomplete,
 } from 'src/components/hook-form';
-
-import { IPostItem } from 'src/types/blog';
-
+//
 import PostDetailsPreview from './post-details-preview';
 
 // ----------------------------------------------------------------------

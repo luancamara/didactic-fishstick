@@ -1,5 +1,6 @@
 'use client';
 
+// components
 import { LoadingScreen } from 'src/components/loading-screen';
 
 // ----------------------------------------------------------------------

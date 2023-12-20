@@ -1,3 +1,4 @@
+// sections
 import { JobListView } from 'src/sections/job/view';
 
 // ----------------------------------------------------------------------

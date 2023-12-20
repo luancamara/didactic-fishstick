@@ -1,3 +1,4 @@
+// sections
 import { AboutView } from 'src/sections/about/view';
 
 // ----------------------------------------------------------------------

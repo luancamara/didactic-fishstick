@@ -1,3 +1,4 @@
+// sections
 import { FirebaseVerifyView } from 'src/sections/auth/firebase';
 
 // ----------------------------------------------------------------------

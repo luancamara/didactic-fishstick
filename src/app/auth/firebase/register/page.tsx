@@ -1,3 +1,4 @@
+// sections
 import { FirebaseRegisterView } from 'src/sections/auth/firebase';
 
 // ----------------------------------------------------------------------

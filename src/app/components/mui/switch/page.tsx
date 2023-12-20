@@ -1,3 +1,4 @@
+// sections
 import SwitchView from 'src/sections/_examples/mui/switch-view';
 
 // ----------------------------------------------------------------------

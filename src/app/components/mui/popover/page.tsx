@@ -1,3 +1,4 @@
+// sections
 import PopoverView from 'src/sections/_examples/mui/popover-view';
 
 // ----------------------------------------------------------------------

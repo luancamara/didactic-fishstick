@@ -1,3 +1,4 @@
+// routes
 import { paths } from 'src/routes/paths';
 
 // API

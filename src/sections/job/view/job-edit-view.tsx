@@ -1,14 +1,15 @@
 'use client';
 
+// @mui
 import Container from '@mui/material/Container';
-
+// routes
 import { paths } from 'src/routes/paths';
-
+// _mock
 import { _jobs } from 'src/_mock';
-
+// components
 import { useSettingsContext } from 'src/components/settings';
 import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
-
+//
 import JobNewEditForm from '../job-new-edit-form';
 
 // ----------------------------------------------------------------------

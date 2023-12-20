@@ -1,3 +1,4 @@
+// sections
 import AlertView from 'src/sections/_examples/mui/alert-view';
 
 // ----------------------------------------------------------------------

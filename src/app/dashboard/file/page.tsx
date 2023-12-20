@@ -1,3 +1,4 @@
+// sections
 import { OverviewFileView } from 'src/sections/overview/file/view';
 
 // ----------------------------------------------------------------------

@@ -1,12 +1,12 @@
 'use client';
 
 import isEqual from 'lodash/isEqual';
-import { useMemo, useState, useEffect, useCallback } from 'react';
-
+import { useEffect, useMemo, useCallback, useState } from 'react';
+// hooks
 import { useLocalStorage } from 'src/hooks/use-local-storage';
-
+// utils
 import { localStorageGetItem } from 'src/utils/storage-available';
-
+//
 import { SettingsValueProps } from '../types';
 import { SettingsContext } from './settings-context';
 

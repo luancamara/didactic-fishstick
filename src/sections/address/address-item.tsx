@@ -1,11 +1,12 @@
+// @mui
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Paper, { PaperProps } from '@mui/material/Paper';
 import Stack, { StackProps } from '@mui/material/Stack';
-
-import Label from 'src/components/label';
-
+// types
 import { IAddressItem } from 'src/types/address';
+// components
+import Label from 'src/components/label';
 
 // ----------------------------------------------------------------------
 

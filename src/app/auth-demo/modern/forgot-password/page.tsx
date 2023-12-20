@@ -1,3 +1,4 @@
+// sections
 import { ModernForgotPasswordView } from 'src/sections/auth-demo/modern';
 
 // ----------------------------------------------------------------------

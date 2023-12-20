@@ -1,10 +1,8 @@
-import { useState, useEffect, useCallback } from 'react';
-
+import { useEffect, useCallback, useState } from 'react';
+// routes
 import { paths } from 'src/routes/paths';
 import { useRouter } from 'src/routes/hooks';
-
-import { SplashScreen } from 'src/components/loading-screen';
-
+//
 import { useAuthContext } from '../hooks';
 
 // ----------------------------------------------------------------------
@@ -23,14 +21,6 @@ type Props = {
 };
 
 export default function AuthGuard({ children }: Props) {
-  const { loading } = useAuthContext();
-
-  return <>{loading ? <SplashScreen /> : <Container>{children}</Container>}</>;
-}
-
-// ----------------------------------------------------------------------
-
-function Container({ children }: Props) {
   const router = useRouter();
 
   const { authenticated, method } = useAuthContext();

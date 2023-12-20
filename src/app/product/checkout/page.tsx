@@ -1,3 +1,4 @@
+// sections
 import { CheckoutView } from 'src/sections/checkout/view';
 
 // ----------------------------------------------------------------------

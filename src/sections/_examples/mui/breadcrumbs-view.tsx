@@ -1,5 +1,6 @@
 'use client';
 
+// @mui
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
@@ -7,12 +8,12 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
-
+// routes
 import { paths } from 'src/routes/paths';
-
+// components
 import Iconify from 'src/components/iconify';
 import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
-
+//
 import ComponentBlock from '../component-block';
 
 // ----------------------------------------------------------------------

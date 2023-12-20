@@ -1,15 +1,16 @@
+// @mui
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Rating from '@mui/material/Rating';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import ListItemText from '@mui/material/ListItemText';
-
+// utils
 import { fDate } from 'src/utils/format-time';
-
-import Iconify from 'src/components/iconify';
-
+// types
 import { IProductReview } from 'src/types/product';
+// components
+import Iconify from 'src/components/iconify';
 
 // ----------------------------------------------------------------------
 

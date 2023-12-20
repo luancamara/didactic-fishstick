@@ -1,3 +1,4 @@
+// sections
 import { FileManagerView } from 'src/sections/file-manager/view';
 
 // ----------------------------------------------------------------------

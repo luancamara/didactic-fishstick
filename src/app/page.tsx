@@ -1,3 +1,4 @@
+// sections
 import { HomeView } from 'src/sections/home/view';
 
 // ----------------------------------------------------------------------

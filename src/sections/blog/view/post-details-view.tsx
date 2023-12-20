@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
-
+import { useEffect, useCallback, useState } from 'react';
+// @mui
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
@@ -12,19 +12,20 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import AvatarGroup, { avatarGroupClasses } from '@mui/material/AvatarGroup';
-
+// routes
 import { paths } from 'src/routes/paths';
 import { RouterLink } from 'src/routes/components';
-
+// utils
 import { fShortenNumber } from 'src/utils/format-number';
-
-import { useGetPost } from 'src/api/blog';
+// _mock
 import { POST_PUBLISH_OPTIONS } from 'src/_mock';
-
+// api
+import { useGetPost } from 'src/api/blog';
+// components
 import Iconify from 'src/components/iconify';
 import Markdown from 'src/components/markdown';
 import EmptyContent from 'src/components/empty-content';
-
+//
 import PostDetailsHero from '../post-details-hero';
 import PostCommentList from '../post-comment-list';
 import PostCommentForm from '../post-comment-form';

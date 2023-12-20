@@ -1,3 +1,4 @@
+// sections
 import AccordionView from 'src/sections/_examples/mui/accordion-view';
 
 // ----------------------------------------------------------------------

@@ -1,5 +1,6 @@
 'use client';
 
+// components
 import SimpleLayout from 'src/layouts/simple';
 
 // ----------------------------------------------------------------------

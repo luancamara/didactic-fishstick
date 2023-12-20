@@ -1,9 +1,10 @@
 'use client';
 
-import Box from '@mui/material/Box';
+// @mui
 import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-
+//
 import FaqsHero from '../faqs-hero';
 import FaqsList from '../faqs-list';
 import FaqsForm from '../faqs-form';

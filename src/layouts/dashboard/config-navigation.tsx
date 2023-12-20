@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
-
+// routes
 import { paths } from 'src/routes/paths';
-
-import { useTranslate } from 'src/locales';
-
+// locales
+import { useLocales } from 'src/locales';
+// components
 import Label from 'src/components/label';
 import Iconify from 'src/components/iconify';
 import SvgColor from 'src/components/svg-color';
@@ -48,7 +48,7 @@ const ICONS = {
 // ----------------------------------------------------------------------
 
 export function useNavData() {
-  const { t } = useTranslate();
+  const { t } = useLocales();
 
   const data = useMemo(
     () => [

@@ -1,12 +1,12 @@
 'use client';
 
-import { useMemo, useEffect, useReducer, useCallback } from 'react';
-
+import { useEffect, useReducer, useCallback, useMemo } from 'react';
+// utils
 import axios, { endpoints } from 'src/utils/axios';
-
+//
 import { AuthContext } from './auth-context';
-import { setSession, isValidToken } from './utils';
-import { AuthUserType, ActionMapType, AuthStateType } from '../../types';
+import { isValidToken, setSession } from './utils';
+import { ActionMapType, AuthStateType, AuthUserType } from '../../types';
 
 // ----------------------------------------------------------------------
 
@@ -91,17 +91,14 @@ export function AuthProvider({ children }: Props) {
       if (accessToken && isValidToken(accessToken)) {
         setSession(accessToken);
 
-        const res = await axios.get(endpoints.auth.me);
+        const response = await axios.get(endpoints.auth.me);
 
-        const { user } = res.data;
+        const { user } = response.data;
 
         dispatch({
           type: Types.INITIAL,
           payload: {
-            user: {
-              ...user,
-              accessToken,
-            },
+            user,
           },
         });
       } else {
@@ -134,19 +131,16 @@ export function AuthProvider({ children }: Props) {
       password,
     };
 
-    const res = await axios.post(endpoints.auth.login, data);
+    const response = await axios.post(endpoints.auth.login, data);
 
-    const { accessToken, user } = res.data;
+    const { accessToken, user } = response.data;
 
     setSession(accessToken);
 
     dispatch({
       type: Types.LOGIN,
       payload: {
-        user: {
-          ...user,
-          accessToken,
-        },
+        user,
       },
     });
   }, []);
@@ -161,19 +155,16 @@ export function AuthProvider({ children }: Props) {
         lastName,
       };
 
-      const res = await axios.post(endpoints.auth.register, data);
+      const response = await axios.post(endpoints.auth.register, data);
 
-      const { accessToken, user } = res.data;
+      const { accessToken, user } = response.data;
 
       sessionStorage.setItem(STORAGE_KEY, accessToken);
 
       dispatch({
         type: Types.REGISTER,
         payload: {
-          user: {
-            ...user,
-            accessToken,
-          },
+          user,
         },
       });
     },

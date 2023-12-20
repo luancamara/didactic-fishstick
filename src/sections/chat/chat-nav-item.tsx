@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { formatDistanceToNowStrict } from 'date-fns';
-
+// @mui
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Badge from '@mui/material/Badge';
@@ -9,17 +9,17 @@ import Typography from '@mui/material/Typography';
 import AvatarGroup from '@mui/material/AvatarGroup';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemButton from '@mui/material/ListItemButton';
-
+// routes
 import { paths } from 'src/routes/paths';
 import { useRouter } from 'src/routes/hooks';
-
-import { useResponsive } from 'src/hooks/use-responsive';
+// hooks
 import { useMockedUser } from 'src/hooks/use-mocked-user';
-
+import { useResponsive } from 'src/hooks/use-responsive';
+// api
 import { clickConversation } from 'src/api/chat';
-
+// types
 import { IChatConversation } from 'src/types/chat';
-
+//
 import { useGetNavItem } from './hooks';
 
 // ----------------------------------------------------------------------
@@ -41,7 +41,7 @@ export default function ChatNavItem({ selected, collapse, conversation, onCloseM
   const { group, displayName, displayText, participants, lastActivity, hasOnlineInGroup } =
     useGetNavItem({
       conversation,
-      currentUserId: `${user?.id}`,
+      currentUserId: user.id,
     });
 
   const singleParticipant = participants[0];

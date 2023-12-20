@@ -1,3 +1,4 @@
+// sections
 import CheckboxView from 'src/sections/_examples/mui/checkbox-view';
 
 // ----------------------------------------------------------------------

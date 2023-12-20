@@ -1,3 +1,4 @@
+// sections
 import { ContactView } from 'src/sections/contact/view';
 
 // ----------------------------------------------------------------------

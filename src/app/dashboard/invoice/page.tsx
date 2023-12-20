@@ -1,3 +1,4 @@
+// sections
 import { InvoiceListView } from 'src/sections/invoice/view';
 
 // ----------------------------------------------------------------------

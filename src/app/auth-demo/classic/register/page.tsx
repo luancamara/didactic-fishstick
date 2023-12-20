@@ -1,3 +1,4 @@
+// sections
 import { ClassicRegisterView } from 'src/sections/auth-demo/classic';
 
 // ----------------------------------------------------------------------

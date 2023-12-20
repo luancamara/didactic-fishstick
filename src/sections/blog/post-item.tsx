@@ -1,3 +1,5 @@
+// @mui
+import { alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Card from '@mui/material/Card';
@@ -5,22 +7,21 @@ import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
-import { alpha, useTheme } from '@mui/material/styles';
-
+// routes
 import { paths } from 'src/routes/paths';
 import { RouterLink } from 'src/routes/components';
-
+// hooks
 import { useResponsive } from 'src/hooks/use-responsive';
-
+// utils
 import { fDate } from 'src/utils/format-time';
 import { fShortenNumber } from 'src/utils/format-number';
-
+// assets
 import { AvatarShape } from 'src/assets/illustrations';
-
+// components
 import Image from 'src/components/image';
 import Iconify from 'src/components/iconify';
 import TextMaxLine from 'src/components/text-max-line';
-
+// types
 import { IPostItem } from 'src/types/blog';
 
 // ----------------------------------------------------------------------

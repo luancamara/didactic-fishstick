@@ -1,3 +1,4 @@
+// sections
 import { PostListView } from 'src/sections/blog/view';
 
 // ----------------------------------------------------------------------

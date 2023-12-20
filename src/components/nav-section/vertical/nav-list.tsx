@@ -1,69 +1,61 @@
 import { useState, useEffect, useCallback } from 'react';
-
+// @mui
 import Collapse from '@mui/material/Collapse';
-
+// routes
 import { usePathname } from 'src/routes/hooks';
 import { useActiveLink } from 'src/routes/hooks/use-active-link';
-
+//
+import { NavListProps, NavConfigProps } from '../types';
 import NavItem from './nav-item';
-import { NavListProps, NavSubListProps } from '../types';
 
 // ----------------------------------------------------------------------
 
-export default function NavList({ data, depth, slotProps }: NavListProps) {
+type NavListRootProps = {
+  data: NavListProps;
+  depth: number;
+  hasChild: boolean;
+  config: NavConfigProps;
+};
+
+export default function NavList({ data, depth, hasChild, config }: NavListRootProps) {
   const pathname = usePathname();
 
-  const active = useActiveLink(data.path, !!data.children);
+  const active = useActiveLink(data.path, hasChild);
 
-  const [openMenu, setOpenMenu] = useState(active);
+  const externalLink = data.path.includes('http');
+
+  const [open, setOpen] = useState(active);
 
   useEffect(() => {
     if (!active) {
-      handleCloseMenu();
+      handleClose();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
-  const handleToggleMenu = useCallback(() => {
-    if (data.children) {
-      setOpenMenu((prev) => !prev);
-    }
-  }, [data.children]);
+  const handleToggle = useCallback(() => {
+    setOpen((prev) => !prev);
+  }, []);
 
-  const handleCloseMenu = useCallback(() => {
-    setOpenMenu(false);
+  const handleClose = useCallback(() => {
+    setOpen(false);
   }, []);
 
   return (
     <>
       <NavItem
-        open={openMenu}
-        onClick={handleToggleMenu}
-        //
-        title={data.title}
-        path={data.path}
-        icon={data.icon}
-        info={data.info}
-        roles={data.roles}
-        caption={data.caption}
-        disabled={data.disabled}
-        //
+        item={data}
         depth={depth}
-        hasChild={!!data.children}
-        externalLink={data.path.includes('http')}
-        currentRole={slotProps?.currentRole}
-        //
+        open={open}
         active={active}
-        className={active ? 'active' : ''}
-        sx={{
-          mb: `${slotProps?.gap}px`,
-          ...(depth === 1 ? slotProps?.rootItem : slotProps?.subItem),
-        }}
+        externalLink={externalLink}
+        onClick={handleToggle}
+        config={config}
       />
 
-      {!!data.children && (
-        <Collapse in={openMenu} unmountOnExit>
-          <NavSubList data={data.children} depth={depth} slotProps={slotProps} />
+      {hasChild && (
+        <Collapse in={open} unmountOnExit>
+          <NavSubList data={data.children} depth={depth} config={config} />
         </Collapse>
       )}
     </>
@@ -72,11 +64,23 @@ export default function NavList({ data, depth, slotProps }: NavListProps) {
 
 // ----------------------------------------------------------------------
 
-function NavSubList({ data, depth, slotProps }: NavSubListProps) {
+type NavListSubProps = {
+  data: NavListProps[];
+  depth: number;
+  config: NavConfigProps;
+};
+
+function NavSubList({ data, depth, config }: NavListSubProps) {
   return (
     <>
       {data.map((list) => (
-        <NavList key={list.title} data={list} depth={depth + 1} slotProps={slotProps} />
+        <NavList
+          key={list.title + list.path}
+          data={list}
+          depth={depth + 1}
+          hasChild={!!list.children}
+          config={config}
+        />
       ))}
     </>
   );

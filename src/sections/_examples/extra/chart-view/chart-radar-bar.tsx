@@ -1,5 +1,6 @@
+// @mui
 import { styled, useTheme } from '@mui/material/styles';
-
+// components
 import Chart, { useChart } from 'src/components/chart';
 
 // ----------------------------------------------------------------------
@@ -61,14 +62,5 @@ export default function ChartRadarBar({ series }: Props) {
     },
   });
 
-  return (
-    <StyledChart
-      dir="ltr"
-      type="radar"
-      series={series}
-      options={chartOptions}
-      width="100%"
-      height={280}
-    />
-  );
+  return <StyledChart dir="ltr" type="radar" series={series} options={chartOptions} height={280} />;
 }

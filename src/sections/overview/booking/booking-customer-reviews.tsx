@@ -1,3 +1,4 @@
+// @mui
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import Rating from '@mui/material/Rating';
@@ -8,10 +9,10 @@ import CardHeader from '@mui/material/CardHeader';
 import Typography from '@mui/material/Typography';
 import Card, { CardProps } from '@mui/material/Card';
 import ListItemText from '@mui/material/ListItemText';
-
+// utils
 import { fDateTime } from 'src/utils/format-time';
-
-import Carousel, { useCarousel, CarouselArrows } from 'src/components/carousel';
+// components
+import Carousel, { CarouselArrows, useCarousel } from 'src/components/carousel';
 
 // ----------------------------------------------------------------------
 

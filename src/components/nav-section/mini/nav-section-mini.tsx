@@ -1,17 +1,17 @@
 import { memo } from 'react';
-
 import Stack from '@mui/material/Stack';
-
+//
+import { NavSectionProps, NavListProps, NavConfigProps } from '../types';
+import { navMiniConfig } from '../config';
 import NavList from './nav-list';
-import { NavProps, NavGroupProps } from '../types';
 
 // ----------------------------------------------------------------------
 
-function NavSectionMini({ data, slotProps, ...other }: NavProps) {
+function NavSectionMini({ data, config, sx, ...other }: NavSectionProps) {
   return (
-    <Stack component="nav" id="nav-section-mini" spacing={`${slotProps?.gap || 4}px`} {...other}>
+    <Stack sx={sx} {...other}>
       {data.map((group, index) => (
-        <Group key={group.subheader || index} items={group.items} slotProps={slotProps} />
+        <Group key={group.subheader || index} items={group.items} config={navMiniConfig(config)} />
       ))}
     </Stack>
   );
@@ -21,11 +21,22 @@ export default memo(NavSectionMini);
 
 // ----------------------------------------------------------------------
 
-function Group({ items, slotProps }: NavGroupProps) {
+type GroupProps = {
+  items: NavListProps[];
+  config: NavConfigProps;
+};
+
+function Group({ items, config }: GroupProps) {
   return (
     <>
       {items.map((list) => (
-        <NavList key={list.title} data={list} depth={1} slotProps={slotProps} />
+        <NavList
+          key={list.title + list.path}
+          data={list}
+          depth={1}
+          hasChild={!!list.children}
+          config={config}
+        />
       ))}
     </>
   );

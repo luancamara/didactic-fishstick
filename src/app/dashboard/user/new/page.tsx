@@ -1,3 +1,4 @@
+// sections
 import { UserCreateView } from 'src/sections/user/view';
 
 // ----------------------------------------------------------------------

@@ -1,18 +1,17 @@
 import parse from 'autosuggest-highlight/parse';
 import match from 'autosuggest-highlight/match';
-
+// @mui
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Autocomplete from '@mui/material/Autocomplete';
 import InputAdornment from '@mui/material/InputAdornment';
-
-import { useRouter } from 'src/routes/hooks';
-
-import Iconify from 'src/components/iconify';
-import SearchNotFound from 'src/components/search-not-found';
-
+// types
 import { IJobItem } from 'src/types/job';
+// components
+import Iconify from 'src/components/iconify';
+import { useRouter } from 'src/routes/hooks';
+import SearchNotFound from 'src/components/search-not-found';
 
 // ----------------------------------------------------------------------
 

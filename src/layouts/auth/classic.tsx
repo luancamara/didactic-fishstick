@@ -1,18 +1,20 @@
+// @mui
+import { alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import { alpha, useTheme } from '@mui/material/styles';
-
+// auth
+import { useAuthContext } from 'src/auth/hooks';
+// routes
 import { paths } from 'src/routes/paths';
 import { RouterLink } from 'src/routes/components';
-
+// hooks
 import { useResponsive } from 'src/hooks/use-responsive';
-
+// theme
 import { bgGradient } from 'src/theme/css';
-import { useAuthContext } from 'src/auth/hooks';
-
+// components
 import Logo from 'src/components/logo';
 
 // ----------------------------------------------------------------------
@@ -55,7 +57,7 @@ export default function AuthClassicLayout({ children, image, title }: Props) {
 
   const theme = useTheme();
 
-  const mdUp = useResponsive('up', 'md');
+  const upMd = useResponsive('up', 'md');
 
   const renderLogo = (
     <Logo
@@ -74,8 +76,7 @@ export default function AuthClassicLayout({ children, image, title }: Props) {
         mx: 'auto',
         maxWidth: 480,
         px: { xs: 2, md: 8 },
-        pt: { xs: 15, md: 20 },
-        pb: { xs: 15, md: 0 },
+        py: { xs: 15, md: 30 },
       }}
     >
       {children}
@@ -85,9 +86,9 @@ export default function AuthClassicLayout({ children, image, title }: Props) {
   const renderSection = (
     <Stack
       flexGrow={1}
-      spacing={10}
       alignItems="center"
       justifyContent="center"
+      spacing={10}
       sx={{
         ...bgGradient({
           color: alpha(
@@ -106,13 +107,7 @@ export default function AuthClassicLayout({ children, image, title }: Props) {
         component="img"
         alt="auth"
         src={image || '/assets/illustrations/illustration_dashboard.png'}
-        sx={{
-          maxWidth: {
-            xs: 480,
-            lg: 560,
-            xl: 720,
-          },
-        }}
+        sx={{ maxWidth: 720 }}
       />
 
       <Stack direction="row" spacing={2}>
@@ -148,7 +143,7 @@ export default function AuthClassicLayout({ children, image, title }: Props) {
     >
       {renderLogo}
 
-      {mdUp && renderSection}
+      {upMd && renderSection}
 
       {renderContent}
     </Stack>

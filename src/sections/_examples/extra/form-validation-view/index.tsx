@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-
+// @mui
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Switch from '@mui/material/Switch';
@@ -9,11 +9,11 @@ import Divider from '@mui/material/Divider';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import FormControlLabel from '@mui/material/FormControlLabel';
-
+// routes
 import { paths } from 'src/routes/paths';
-
+// components
 import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
-
+//
 import ReactHookForm from './react-hook-form';
 
 // ----------------------------------------------------------------------

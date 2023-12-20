@@ -1,3 +1,4 @@
+// sections
 import DataGridView from 'src/sections/_examples/mui/data-grid-view';
 
 // ----------------------------------------------------------------------

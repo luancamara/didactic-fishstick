@@ -1,17 +1,17 @@
 import { useState, useCallback } from 'react';
-
+// @mui
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { inputBaseClasses } from '@mui/material/InputBase';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
-
+// hooks
 import { useBoolean } from 'src/hooks/use-boolean';
-
+// utils
 import uuidv4 from 'src/utils/uuidv4';
-
+// api
 import { createColumn } from 'src/api/kanban';
-
+// components
 import Iconify from 'src/components/iconify';
 
 // ----------------------------------------------------------------------

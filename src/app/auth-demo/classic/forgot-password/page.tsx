@@ -1,3 +1,4 @@
+// sections
 import { ClassicForgotPasswordView } from 'src/sections/auth-demo/classic';
 
 // ----------------------------------------------------------------------

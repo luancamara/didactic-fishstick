@@ -1,13 +1,14 @@
-import useMediaQuery from '@mui/material/useMediaQuery';
+// @mui
 import { useTheme, Breakpoint } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 // ----------------------------------------------------------------------
 
 type ReturnType = boolean;
 
-export type Query = 'up' | 'down' | 'between' | 'only';
+type Query = 'up' | 'down' | 'between' | 'only';
 
-export type Value = Breakpoint | number;
+type Value = Breakpoint | number;
 
 export function useResponsive(query: Query, start?: Value, end?: Value): ReturnType {
   const theme = useTheme();

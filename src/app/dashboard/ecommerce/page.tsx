@@ -1,3 +1,4 @@
+// sections
 import { OverviewEcommerceView } from 'src/sections/overview/e-commerce/view';
 
 // ----------------------------------------------------------------------
