@@ -28,6 +28,11 @@ export const AUTH0_API = {
   callbackUrl: process.env.NEXT_PUBLIC_AUTH0_CALLBACK_URL,
 };
 
+export const SUPABASE_API = {
+  url: process.env.NEXT_PUBLIC_SUPABASE_URL,
+  key: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+};
+
 export const MAPBOX_API = process.env.NEXT_PUBLIC_MAPBOX_API;
 
 // ROOT PATH AFTER LOGIN SUCCESSFUL

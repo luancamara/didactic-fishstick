@@ -114,8 +114,6 @@ export default function FirebaseLoginView() {
 
   const renderForm = (
     <Stack spacing={2.5}>
-      {!!errorMsg && <Alert severity="error">{errorMsg}</Alert>}
-
       <RHFTextField name="email" label="Email address" />
 
       <RHFTextField
@@ -189,12 +187,20 @@ export default function FirebaseLoginView() {
   );
 
   return (
-    <FormProvider methods={methods} onSubmit={onSubmit}>
+    <>
       {renderHead}
 
-      {renderForm}
+      {!!errorMsg && (
+        <Alert severity="error" sx={{ mb: 3 }}>
+          {errorMsg}
+        </Alert>
+      )}
+
+      <FormProvider methods={methods} onSubmit={onSubmit}>
+        {renderForm}
+      </FormProvider>
 
       {renderLoginOption}
-    </FormProvider>
+    </>
   );
 }

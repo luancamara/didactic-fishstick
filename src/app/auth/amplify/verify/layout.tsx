@@ -1,6 +1,5 @@
 'use client';
 
-import { GuestGuard } from 'src/auth/guard';
 import CompactLayout from 'src/layouts/compact';
 
 // ----------------------------------------------------------------------
@@ -10,9 +9,5 @@ type Props = {
 };
 
 export default function Layout({ children }: Props) {
-  return (
-    <GuestGuard>
-      <CompactLayout>{children}</CompactLayout>
-    </GuestGuard>
-  );
+  return <CompactLayout>{children}</CompactLayout>;
 }
